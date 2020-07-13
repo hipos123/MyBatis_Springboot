@@ -8,6 +8,9 @@ public class InstantA {
 //    @Autowired
     private InstantB instantB;
 
+//    @Autowired
+//    private InstantD instantD;
+
 
     public InstantB getInstantB() {
         return instantB;
@@ -17,4 +20,8 @@ public class InstantA {
         System.out.println("instantB的注入方式-----------");
         this.instantB = instantB;
     }
+
+//    public void myName(){
+//        instantD.getName();
+//    }
 }
