@@ -1,6 +1,5 @@
-package com.joy.ascept;
+package com.joy.autowire;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component

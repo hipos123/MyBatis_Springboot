@@ -1,6 +1,5 @@
-package com.joy.ascept;
+package com.joy.autowire;
 
-import javafx.scene.transform.Rotate;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;

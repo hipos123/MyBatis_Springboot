@@ -1,4 +1,4 @@
-package com.joy.ascept;
+package com.joy.autowire;
 
 /**
  * @description:

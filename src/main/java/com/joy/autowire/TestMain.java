@@ -1,4 +1,4 @@
-package com.joy.ascept;
+package com.joy.autowire;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

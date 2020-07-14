@@ -1,4 +1,4 @@
-package com.joy.ascept;
+package com.joy.autowire;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.*;

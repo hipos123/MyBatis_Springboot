@@ -1,6 +1,4 @@
-package com.joy.ascept;
-
-import org.springframework.stereotype.Component;
+package com.joy.autowire;
 
 /**
  * @description:
