@@ -11,7 +11,7 @@ public class TestMain {
 
     public static void main(String[] args) {
         // 使用AnnotationConfigApplicationContext获取spring容器ApplicationContext2
-        AnnotationConfigApplicationContext applicationContext2 = new AnnotationConfigApplicationContext(MainConfig.class);
+        AnnotationConfigApplicationContext applicationContext2 = new AnnotationConfigApplicationContext(BeanCycleConfig.class);
         applicationContext2.close();
 
     }

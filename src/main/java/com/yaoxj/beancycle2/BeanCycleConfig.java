@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @create: 2020-07-14 17:57
  **/
 @Configuration
-public class MainConfig {
+public class BeanCycleConfig {
 
     @Bean(initMethod = "initUser", destroyMethod = "destroyUser")
     public UserBean getUserBean() {

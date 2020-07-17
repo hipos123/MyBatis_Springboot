@@ -3,6 +3,8 @@ package com.yaoxj.beancycle2;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @description:
  * @author: yaoxj
@@ -28,6 +30,11 @@ public class UserBean implements InitializingBean, DisposableBean {
     }
     public void destroyUser(){
         System.out.println("执行destroyMethod方法......");
+    }
+
+    @PostConstruct
+    public void postct(){
+        System.out.println("执行PostConstruct方法...");
     }
 
 
