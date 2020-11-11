@@ -61,4 +61,16 @@ public class UserController {
     public int deleteEntity() {
         return userService.deleteEntity();
     }
+
+    @RequestMapping("/doTransTest")
+    public void doTransTest() {
+        userService.doTranscationTest();
+    }
+
+    @RequestMapping("/doTransTest2")
+    public void doTransTest2() {
+        userService.doTranscationTest2();
+    }
+
+
 }

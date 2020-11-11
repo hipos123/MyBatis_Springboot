@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.yaoxj.dao.UserMapper;
 import com.yaoxj.entity.UserEntity;
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
 public class UserService {
+
 	@Autowired(required = false)
 	private UserMapper mapper;
 	
@@ -27,10 +30,10 @@ public class UserService {
 
 	public int insertEntity() {
 		UserEntity entity=new UserEntity();
-		entity.setUserName("lisi");
-		entity.setUserCode("lisi"+new Date());
-		entity.setNickName("郭靖");
-		entity.setUserPwd("123");
+		entity.setUserName("lisi2");
+		entity.setUserCode("lisi2"+new Date());
+		entity.setNickName("郭靖2");
+		entity.setUserPwd("1232");
 		entity.setCreateDate(new Date());
 		entity.setUpdateDate(new Date());
         return mapper.insertEntity(entity);
@@ -40,23 +43,67 @@ public class UserService {
         return mapper.insertParam("linzhiqiang","lzq");
     }
 
+    @Transactional
     public int insertByMap() {
         Map<String, Object> map=new HashMap<String, Object>();
         map.put("nickName","zhaotong");
         map.put("userCode","zt");
         return mapper.insertByMap(map);
     }
-
+    @Transactional
     public int updateEntity() {
         UserEntity entity=new UserEntity();
         entity.setUserId(1);
-        entity.setNickName("郭靖");
-        return mapper.updateEntity(entity);
+        entity.setNickName("郭靖4567");
+        int i = mapper.updateEntity(entity);
+
+//        entity=new UserEntity();
+//        entity.setUserId(1);
+//        entity.setNickName("郭靖777777");
+//        i = mapper.updateEntity(entity);
+        i=10/0;
+        return i;
+    }
+
+
+    private int updateEntity2() {
+        UserEntity entity=new UserEntity();
+        entity.setUserId(1);
+        entity.setNickName("郭靖890");
+        int i = mapper.updateEntity(entity);
+        i=10/0;
+        return i;
     }
 
     public int deleteEntity() {
         UserEntity entity=new UserEntity();
         entity.setUserId(11);
         return mapper.deleteEntity(entity);
+    }
+
+//    @Transactional
+    public void doTranscationTest(){
+        UserEntity entity=new UserEntity();
+        entity.setUserName("lisi333");
+        entity.setUserCode("lisi33"+new Date());
+        entity.setNickName("郭靖333");
+        entity.setUserPwd("1232");
+        entity.setCreateDate(new Date());
+        entity.setUpdateDate(new Date());
+         mapper.insertEntity(entity);
+        this.updateEntity();
+    }
+
+    @Transactional
+    public void doTranscationTest2(){
+        UserEntity entity=new UserEntity();
+        entity.setUserName("lisi44");
+        entity.setUserCode("lisi4"+new Date());
+        entity.setNickName("郭靖44");
+        entity.setUserPwd("1232");
+        entity.setCreateDate(new Date());
+        entity.setUpdateDate(new Date());
+        mapper.insertEntity(entity);
+        this.updateEntity2();
     }
 }
