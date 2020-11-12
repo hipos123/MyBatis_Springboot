@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+  	stage('Stage 1') {
+  		steps {
+  			echo '第一个步骤就是拉项目6688668686867868!'
+  		}
+  	}
+  }
+}
