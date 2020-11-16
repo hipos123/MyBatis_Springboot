@@ -21,11 +21,11 @@ public class UserController {
     private BizService bb;
 
     @RequestMapping("/userlist")
-	public List<UserEntity> queryList(){
+    public List<UserEntity> queryList(){
         log.info("获取用户列表数据");
-		PageHelper.startPage(1, 2);
-		return userService.queryList();
-	}
+        PageHelper.startPage(1, 2);
+        return userService.queryList();
+    }
 
     @RequestMapping("/queryUser")
     public UserEntity queryUserEntity(long userId){
@@ -61,4 +61,12 @@ public class UserController {
     public int deleteEntity() {
         return userService.deleteEntity();
     }
+
+
+    @RequestMapping("/test")
+    public String testBranch(){
+
+        return "我 测试分支上testBranch------------";
+    }
+
 }
