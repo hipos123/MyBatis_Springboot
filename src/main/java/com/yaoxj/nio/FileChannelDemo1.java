@@ -17,6 +17,7 @@ public class FileChannelDemo1 {
         byteBuffer.put(str.getBytes());
         byteBuffer.flip();//反转一下，将位置指向到第0个位置上
         FileChannel channel = fileOutputStream.getChannel();
+        //将buffer里面的内容写入到channel里面。
         channel.write(byteBuffer);
 
         fileOutputStream.close();
