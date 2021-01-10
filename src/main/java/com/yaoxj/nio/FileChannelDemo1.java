@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 public class FileChannelDemo1 {
     public static void main(String[] args) throws IOException {
         //将字符串写入到"demo1.txt";
-        String str="hello,filechannel";
+        String str="hello,filechannel,world,getmyname";
         FileOutputStream fileOutputStream = new FileOutputStream("F://filechannel.txt");
 
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
