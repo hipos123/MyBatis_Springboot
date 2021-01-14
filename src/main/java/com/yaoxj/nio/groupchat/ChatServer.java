@@ -42,4 +42,8 @@ public class ChatServer {
     public  void sendMsg2OtherChannel(String msg,SocketChannel self){
 
     }
+
+    public void readMsgFromClient(){
+
+    }
 }
