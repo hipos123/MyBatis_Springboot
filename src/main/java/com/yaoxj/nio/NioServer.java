@@ -24,7 +24,8 @@ public class NioServer {
                 System.out.println("服务器等待了1秒，无事件发生");
                 continue;
             }
-
+            System.out.println("当前有多个事件："+selector.keys().size());
+            //selectionKeys 事件的集合
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = selectionKeys.iterator();
             while(iterator.hasNext()){
