@@ -4,10 +4,8 @@ import org.apache.ibatis.annotations.SelectKey;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -39,11 +37,28 @@ public class ChatServer {
         }
     }
 
-    public  void sendMsg2OtherChannel(String msg,SocketChannel self){
-
+    public  void sendMsg2OtherChannel(String msg,SocketChannel self) throws IOException {
+        //SelectionKey是和channel对应的， selector.keys() 获取到所有在selector上注册的key
+        Set<SelectionKey> keys = selector.keys();
+        for(SelectionKey key:keys){
+            Channel channel = key.channel();//通过selectionKey反向获取channel
+            if(channel  instanceof  SocketChannel &&channel!=self){
+                SocketChannel MymyChannel=(SocketChannel)channel;
+                MymyChannel.write(ByteBuffer.wrap(msg.getBytes()));
+            }
+        }
     }
 
-    public void readMsgFromClient(){
+    public void readMsgFromClient() throws IOException {
+        Set<SelectionKey> keys = selector.keys();
+        for(SelectionKey key:keys){
+            SocketChannel channel = (SocketChannel) key.channel();//通过selectionKey反向获取channel
+            ByteBuffer byteBuffer=ByteBuffer.allocate(1024);
+            int read = channel.read(byteBuffer);
+            if(read>0){
+                System.out.println("从客户端获取到的消息是："+new String(byteBuffer.array()));
+            }
+        }
 
     }
 }

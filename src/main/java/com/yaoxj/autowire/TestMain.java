@@ -20,8 +20,7 @@ public class TestMain {
         System.out.println(a==b);
         System.out.println(a.equals(b));
         System.out.println(c==d);
-//        instantA.myName();
-//
+//        instantA.myName();】=【-poi87u//
 //        System.out.println(instantA);
 //        System.out.println(instantA.getInstantB());
 //          InstantD instantD = ctx.getBean(InstantD.class);

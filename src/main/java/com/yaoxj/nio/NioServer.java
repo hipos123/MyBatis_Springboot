@@ -25,6 +25,8 @@ public class NioServer {
                 continue;
             }
             System.out.println("当前有多个事件："+selector.keys().size());
+
+
             //selectionKeys 事件的集合
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = selectionKeys.iterator();
@@ -43,10 +45,17 @@ public class NioServer {
                     //获取到该channel关联的buffer
                     ByteBuffer byteBuffer = (ByteBuffer) selectionKey.attachment();
                     socketChannel.read(byteBuffer);
-                    System.out.println("服务端获取到的数据是："+new String(byteBuffer.array()));
+                    System.out.println(socketChannel.hashCode()+"服务端获取到的数据是："+new String(byteBuffer.array()));
                 }
                 iterator.remove();
             }
+
+            Set<SelectionKey> keys = selector.keys();
+            for(SelectionKey key:keys){
+                Channel channel = key.channel();//通过selectionKey反向获取channel
+                System.out.println("key.channel():"+channel.hashCode());
+            }
+
 
 
         }
