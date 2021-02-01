@@ -37,6 +37,19 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         }finally {
             //buf.release();
         }
+
+        ctx.channel().eventLoop().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(10*1000);
+                    ctx.writeAndFlush(Unpooled.copiedBuffer("延迟10秒发消息给你",CharsetUtil.UTF_8));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        System.out.println("-------异步操作，不会阻塞在这边------------------");
     }
 
     @Override
