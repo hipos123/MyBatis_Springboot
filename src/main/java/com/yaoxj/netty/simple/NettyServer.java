@@ -12,6 +12,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class NettyServer {
     public static void main(String[] args) {
         EventLoopGroup bossLoopGroup = new NioEventLoopGroup();
+        //bossgroup是一个线程池，线程数量默认是核心数*2，里面有个多NioEvetnLoop，每个NioEventLoop包含有一个selector和taskQueue
         EventLoopGroup workLoopGroup = new NioEventLoopGroup();
         try {
 
@@ -27,6 +28,7 @@ public class NettyServer {
                             ch.pipeline().addLast(new NettyServerHandler());
                         }
                     });
+            //pipeline是是业务处理的管道，里面放着多个handler，channel是通道，获取数据的通道
             System.out.println("------服务端准备就绪---------------");
 
             ChannelFuture channelFuture = serverBootstrap.bind(6668).sync();
