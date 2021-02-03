@@ -37,7 +37,11 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         }finally {
             //buf.release();
         }
+    //如果这个业务操作很耗时，放在主线程上做的话，会影响其他的操作，所以在这种情况下，将耗时的业务操作放在任务队列中执行，异步处理
 
+//        Thread.sleep(10*1000);
+//        ctx.writeAndFlush(Unpooled.copiedBuffer("延迟10秒发消息给你",CharsetUtil.UTF_8));
+        // 处理任务队列中的任务，runAllTasks
         ctx.channel().eventLoop().execute(new Runnable() {
             @Override
             public void run() {
