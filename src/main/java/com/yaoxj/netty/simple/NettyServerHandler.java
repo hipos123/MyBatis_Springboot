@@ -6,6 +6,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
+import java.util.concurrent.TimeUnit;
+
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
@@ -54,6 +56,17 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
             }
         });
         System.out.println("-------异步操作，不会阻塞在这边------------------");
+        ctx.channel().eventLoop().schedule(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5*1000);
+                    ctx.writeAndFlush(Unpooled.copiedBuffer("延迟5秒发消息给你,schedule",CharsetUtil.UTF_8));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },5, TimeUnit.SECONDS);
     }
 
     @Override
