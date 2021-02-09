@@ -14,6 +14,10 @@ public class NettyServer {
         EventLoopGroup bossLoopGroup = new NioEventLoopGroup();
         //bossgroup是一个线程池，线程数量默认是核心数*2，里面有个多NioEvetnLoop，每个NioEventLoop包含有一个selector和taskQueue
         EventLoopGroup workLoopGroup = new NioEventLoopGroup();
+        //workgroop 有12个线程，当有客户端的进行消息处理的时候（即客户端进行write操作，服务端read操作），服务端的workgroup就场所一个线程进行处理，12-1.依次内推，知道12-12之后。再有
+        //第13个客户端来的时候，就又从12-1开始
+
+
         try {
 
 
