@@ -28,3 +28,5 @@ NioEventLoopGroup 相当于 1 个事件循环组，这个组里包含多个事�
 4.  ch.pipeline().addLast(new NettyServerHandler());
 5. 如果这个业务操作很耗时，放在主线程上做的话，会影响其他的操作，所以在这种情况下，将耗时的业务操作放在任务队列中执行，异步处理
  ctx.channel().eventLoop().execute或者ctx.channel().eventLoop().schedule
+6. netty提供了一个专门用来操作缓冲区（即netty的数据容器）的工具类。{nio提供的是ByteBuffer
+netty用的是ByteBuf} ，常用的方法有：
