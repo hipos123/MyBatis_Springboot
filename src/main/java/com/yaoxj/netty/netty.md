@@ -77,7 +77,12 @@ pipeline.addLast(new MyTextFrameHandler());`
 1. netty提供了很多编码和解码器比如：
 StringEncoder  -----------》StringDecoder  :对字符串进行编码解码
 ObjectEncoder  -----------》ObjectDecoder  :对对象进行编码解码
-
+ObjectEncoder和ObjectDecoder是对对象进行编码和解码操作，底层使用的仍然是java序列化技术，而java
+序列化技术本身效率就不高，存在的以下问题：
+1）无法跨语言
+2）序列化之后体积太大，是二进制编码的5倍多
+3）序列化性能太低
+所以引进了Google的protobuf技术。
 
 
 
