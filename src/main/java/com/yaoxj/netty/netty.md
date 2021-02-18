@@ -28,7 +28,9 @@ NioEventLoopGroup 相当于 1 个事件循环组，这个组里包含多个事�
 4.  ch.pipeline().addLast(new NettyServerHandler());
 5. 如果这个业务操作很耗时，放在主线程上做的话，会影响其他的操作，所以在这种情况下，将耗时的业务操作放在任务队列中执行，异步处理
  ctx.channel().eventLoop().execute或者ctx.channel().eventLoop().schedule
-6. netty提供了一个专门用来操作缓冲区（即netty的数据容器）的工具类Unpooled。{nio提供的是ByteBuffer
+
+###unpooled 
+netty提供了一个专门用来操作缓冲区（即netty的数据容器）的工具类Unpooled。{nio提供的是ByteBuffer
 netty用的是ByteBuf} ，常用的方法有：
 >Unpooled.buffer(10);
 >Unpooled.copiedBuffer("hello yaoxj", CharsetUtil.UTF_8);
@@ -47,6 +49,7 @@ netty用的是ByteBuf} ，常用的方法有：
 6. pipeline.addLast(new IdleStateHandler(3, 5, 7, TimeUnit.SECONDS));
 7. 加入一个对空闲检测进一步处理的handler
 8. pipeline.addLast(new MyIdleStateHandler());
+
 ###websocket长连接
 1. websocket使用了一部分http的协议，但是他自己是一个独立的协议，和http协议没有关系。
 http是无状态的协议，都是一个次请求，一次相应。如果还有请求，就需要不断的和服务器建立连接，这个开销需要
@@ -54,6 +57,29 @@ http是无状态的协议，都是一个次请求，一次相应。如果还有�
 
 2. websocket的优势在于客户端和服务端只要进行一次的连接，就可以不断的收发消息，不要进行其他的连接操作。
 服务端也可以主动的推送消息给客户端。
+
+`ChannelPipeline pipeline = ch.pipeline();
+//因为基于http协议，使用http的编码和解码器
+pipeline.addLast(new HttpServerCodec());
+//是以块的方式写，所以需要ChunkedWriteHandler处理器
+pipeline.addLast(new ChunkedWriteHandler());
+//http在传输过程中是分段的，HttpObjectAggregator可以将多个段聚合发送,y有的时候在浏览器看到多个请求
+//但是服务端只有一份聚合的数据
+pipeline.addLast(new HttpObjectAggregator(8192));
+//对于websocket，数据是以帧（frame）的形式传递
+//可以看到websocketFrame下面有6个子类
+//浏览器请求时 ws://localhost:6669/hello，表示请求的uri
+//WebSocketServerProtocolHandler核心的功能就是将http协议升级为ws协议，保持长连接
+pipeline.addLast(new WebSocketServerProtocolHandler("/hello"));
+pipeline.addLast(new MyTextFrameHandler());`
+
+###protobuf 编码解码器
+1. netty提供了很多编码和解码器比如：
+StringEncoder  -----------》StringDecoder  :对字符串进行编码解码
+ObjectEncoder  -----------》ObjectDecoder  :对对象进行编码解码
+
+
+
 
 
 
