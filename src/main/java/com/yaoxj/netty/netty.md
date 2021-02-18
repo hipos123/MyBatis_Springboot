@@ -28,5 +28,34 @@ NioEventLoopGroup 相当于 1 个事件循环组，这个组里包含多个事�
 4.  ch.pipeline().addLast(new NettyServerHandler());
 5. 如果这个业务操作很耗时，放在主线程上做的话，会影响其他的操作，所以在这种情况下，将耗时的业务操作放在任务队列中执行，异步处理
  ctx.channel().eventLoop().execute或者ctx.channel().eventLoop().schedule
-6. netty提供了一个专门用来操作缓冲区（即netty的数据容器）的工具类。{nio提供的是ByteBuffer
+6. netty提供了一个专门用来操作缓冲区（即netty的数据容器）的工具类Unpooled。{nio提供的是ByteBuffer
 netty用的是ByteBuf} ，常用的方法有：
+>Unpooled.buffer(10);
+>Unpooled.copiedBuffer("hello yaoxj", CharsetUtil.UTF_8);
+>System.out.println(byteBufStr.arrayOffset());
+>System.out.println(byteBufStr.readerIndex());
+>byteBufStr.writerIndex()
+>byteBufStr.capacity()
+>byteBufStr.getCharSequence(0,4,CharsetUtil.UTF_8)
+###heartBeat 心跳检测
+1. IdleStateHandler 是netty提供的空闲状态的处理器
+2. long readerIdleTime:表示多长时间没有读，就会发送一个心跳检测包检测是否连接
+3. long writerIdleTime：表示多长时间没有写，就会发送一个心跳检测包检测是否连接
+4. long allIdleTime：表示多长时间么有读写，就会发送一个心跳检测包检测是否连接
+5. 当空闲检测触发之后，就会传递给管道的下一个handler，通过下一个handler的userEventTriggered方法
+来处理读空闲，写空闲或者读写空闲
+6. pipeline.addLast(new IdleStateHandler(3, 5, 7, TimeUnit.SECONDS));
+7. 加入一个对空闲检测进一步处理的handler
+8. pipeline.addLast(new MyIdleStateHandler());
+###websocket长连接
+1. websocket使用了一部分http的协议，但是他自己是一个独立的协议，和http协议没有关系。
+http是无状态的协议，都是一个次请求，一次相应。如果还有请求，就需要不断的和服务器建立连接，这个开销需要
+耗费非常多的资源。还有一点，服务端有消息都是需要客户端主动来轮询的，服务端不会主动推送消息给客户端。
+
+2. websocket的优势在于客户端和服务端只要进行一次的连接，就可以不断的收发消息，不要进行其他的连接操作。
+服务端也可以主动的推送消息给客户端。
+
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket 客户端</title>
+</head>
+<body>
+<script>
+    var socket;
+    if(window.WebSocket){
+        socket=new WebSocket("ws://localhost:6669/hello");
+        socket.onmessage=function (ev) {
+            var rpMsg=document.getElementById("respMsg");
+            rpMsg.value=rpMsg.value+"\n"+ev.data;
+        }
+
+        socket.onopen=function (ev) {
+            var rpMsg=document.getElementById("respMsg");
+            rpMsg.value="客户端和服务端建立了连接";
+        }
+
+        socket.onclose=function (ev) {
+            var rpMsg=document.getElementById("respMsg");
+            rpMsg.value=rpMsg.value+"\n"+"客户端和服务端断开了连接";
+        }
+    }else{
+        alert('不支持websocket');
+    }
+
+    function sendMsg(msg){
+        if(!window.WebSocket){
+            alert('不支持websocket');
+        }
+        if(socket.readyState ==WebSocket.OPEN){
+            socket.send(msg);
+        }
+
+    }
+</script>
+<form onsubmit="return false">
+    <textarea name="message" style="height: 300px;width: 300px"></textarea>
+    <input type="button" value="发送消息" onclick="sendMsg(this.form.message.value)">
+    <textarea id="respMsg" style="height: 300px;width: 300px"></textarea>
+    <input type="button" value="清空内容" onclick="document.getElementById('respMsg').value=''"/>
+
+</form>
+</body>
+</html>
