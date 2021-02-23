@@ -1,4 +1,5 @@
 ###Buffer
+0. Bufer顾名思义，它是一个缓冲区，实际上是一个容器，一个连续数组
 1. buffer allocate 分配多少空间
 2. buffer hasRemaining 还有剩下的元素
 3. buffer flip 读写反转
