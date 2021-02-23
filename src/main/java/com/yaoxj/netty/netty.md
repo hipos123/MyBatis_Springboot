@@ -84,6 +84,17 @@ ObjectEncoder和ObjectDecoder是对对象进行编码和解码操作，底层使
 3）序列化性能太低
 所以引进了Google的protobuf技术。
 
+###protobuf 开发步骤
+1. 创建protobuf文件：Student.proto
+2. 使用protobuf工具创建java文件: protoc.exe --java_out=. Student.proto
+生成StudentPOJO.java文件
+3. server端和client 增加编码解码器：
+ pipeline.addLast("protobufVarint32FrameDecoder", new ProtobufVarint32FrameDecoder());
+ pipeline.addLast("protobufDecoder", new ProtobufDecoder(StudentPOJO.Student.getDefaultInstance()));
+ pipeline.addLast("protobufVarint32LengthFieldPrepender", new ProtobufVarint32LengthFieldPrepender());
+ pipeline.addLast("protobufEncoder", new ProtobufEncoder());
+
+
 
 
 
