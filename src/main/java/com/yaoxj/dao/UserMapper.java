@@ -8,15 +8,15 @@ import org.apache.ibatis.annotations.*;
 import com.yaoxj.entity.UserEntity;
 
 public interface UserMapper {
-	@Select("select * from user ")
+	@Select("select * from sys_user ")
 	@Results({
             @Result(property = "userId", column = "user_id"),
-			@Result(property = "nickName", column = "nick_name"),
-			@Result(property = "userCode", column = "user_code"), 
+			@Result(property = "nickName", column = "login_name"),
+			@Result(property = "userCode", column = "user_type"),
 			@Result(property = "userName", column = "user_name"),
-			@Result(property = "userPwd", column = "user_pwd"),
-			@Result(property = "createDate", column = "create_date"),
-			@Result(property = "updateDate", column = "update_date") })
+			@Result(property = "userPwd", column = "password"),
+			@Result(property = "createDate", column = "create_time"),
+			@Result(property = "updateDate", column = "update_time") })
 	public List<UserEntity> queryList();
 
     @Select("SELECT * FROM USER WHERE user_id = #{userId}")
