@@ -55,5 +55,6 @@ public class TimeZoneTest {
         BigDecimal b  =   new  BigDecimal(aa);
         float  m_price  =  b.setScale(2,  BigDecimal.ROUND_HALF_UP).floatValue();
         System.out.println((int)(m_price*100));
+
     }
 }

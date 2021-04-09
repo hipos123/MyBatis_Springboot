@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import com.yaoxj.entity.UserEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class UserService {
 
 	@Autowired(required = false)
@@ -106,4 +108,47 @@ public class UserService {
         mapper.insertEntity(entity);
         this.updateEntity2();
     }
+
+    public void get(Integer uid) throws Exception {
+        check(uid);
+        service(uid);
+        redis(uid);
+        mysql(uid);
+    }
+
+    public void service(Integer uid) throws Exception {
+        int count = 0;
+        for (int i = 0; i < 10; i++) {
+            count += i;
+        }
+        log.info("service  end {}", count);
+    }
+
+    public void redis(Integer uid) throws Exception {
+        log.info("redis begin");
+        int count = 0;
+        for (int i = 0; i < 1000; i++) {
+            Thread.sleep(10);
+            count += i;
+        }
+        log.info("redis  end {}", count);
+    }
+
+    public void mysql(Integer uid) throws Exception {
+        log.info("mysql begin");
+        long count = 0;
+        for (int i = 0; i < 1000; i++) {
+            count += i;
+        }
+        log.info("mysql end {}", count);
+    }
+
+    public boolean check(Integer uid) throws Exception {
+        if (uid == null || uid < 0) {
+            log.error("uid不正确，uid:{}", uid);
+            throw new Exception("uid不正确");
+        }
+        return true;
+    }
+
 }
