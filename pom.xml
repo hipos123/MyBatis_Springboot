@@ -15,6 +15,11 @@
     </parent>
     <properties>
         <java.version>1.8</java.version>
+        <!--docker插件-->
+        <!-- docker私服地址,Harbor配置完默认地址就是80,默认不带端口号。但是我这里是81 -->
+        <docker.repostory>192.168.3.234:8011</docker.repostory>
+        <!--项目名,需要和Harbor中的项目名称保持一致 -->
+        <docker.registry.name>springmybatis</docker.registry.name>
     </properties>
     <dependencies>
         <dependency>
@@ -75,19 +80,107 @@
             <artifactId>guava</artifactId>
             <version>18.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.43.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.15.1</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.6.4</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        &lt;!&ndash; https://mvnrepository.com/artifact/com.google.zxing/core &ndash;&gt;
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.0</version>
+        </dependency>-->
     </dependencies>
 
 
     <build>
-        <finalName>springboot-mybatis</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
-                </configuration>
             </plugin>
+
+           <!-- <plugin>
+   &lt;!&ndash;             <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork> &lt;!&ndash; 如果没有该配置，devtools不会生效 &ndash;&gt;
+                </configuration>&ndash;&gt;
+
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        &lt;!&ndash;用户只需执行mvn package ，就会自动执行mvn docker:build&ndash;&gt;
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <registryUrl>http://${docker.repostory}</registryUrl>
+                    &lt;!&ndash;指定生成的镜像名，如果不指定tag,默认会使用latest&ndash;&gt;
+                    <imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+                    &lt;!&ndash;添加额外的指定标签, 非必须&ndash;&gt;
+                    &lt;!&ndash;
+                    <imageTags>
+                     <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    &ndash;&gt;
+
+                    &lt;!&ndash; 指定 Dockerfile 路径 ：项目根路径下&ndash;&gt;
+                    <dockerDirectory>${project.basedir}/docker</dockerDirectory>
+                    &lt;!&ndash;指定远程 docker api地址&ndash;&gt;
+                    <dockerHost>http://192.168.3.234:2375</dockerHost>
+
+
+                    &lt;!&ndash; copy资源 &ndash;&gt;
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+
+
+                    &lt;!&ndash;docker build dockerfile时：设置镜像创建时的变量 &ndash;&gt;
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>-->
         </plugins>
     </build>
 
