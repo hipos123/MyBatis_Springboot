@@ -18,7 +18,8 @@ public class BIOServer {
 
         try {
             ServerSocket serverSocket =new ServerSocket(6666);
-            System.out.println("socker服务端已经启动了，但是还没客户端连接进来======"+Thread.currentThread().getName());
+            System.out.println("socker服务端已经启动了，但是还没客户端连接进来======"+Thread.currentThread().getName()
+                    +"&&thread Id==="+Thread.currentThread().getId());
 
             while (true){
                 Socket socket = serverSocket.accept();

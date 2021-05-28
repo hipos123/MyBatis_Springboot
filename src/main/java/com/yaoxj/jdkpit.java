@@ -3,7 +3,9 @@ package com.yaoxj;
 import cn.hutool.core.util.NumberUtil;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * @description:
@@ -79,6 +81,65 @@ public class jdkpit {
         for (String s2:split2){
             System.out.println(s2);
         }
+
+        String replace="我有一个好吃的${},#{}";
+        replace=replace.replace("${}","${%s}");
+        replace=replace.replace("#{}","#{%s}");
+        System.out.println(replace);
+        System.out.println(String.format(replace,"苹果","爱吃"));
+
+
+//        equals比较的是两个对象值是否相等，如果没有被重写，比较的是对象的引用地址是否相同；
+//        ==用于比较基本数据类型的值是否相等，或比较两个对象的引用地址是否相等；
+        String helloStr="hello";//局部变量在栈中
+        String hello=new String("hello"); //在堆中
+        String hello1=new String("hello1");//在堆中
+//        hello.equals(hello1)
+        System.out.println(hello.equals(helloStr));//equals 方法重写了，比较的是2个对象的值是否相同
+        System.out.println(hello==helloStr);//引用地址是否相等
+        System.out.println(hello==hello1);//引用地址是否相等
+
+        String idIndate = "2022年6月26日";
+        idIndate= idIndate.replaceAll("年", "-");
+        idIndate= idIndate.replaceAll("月", "-");
+        idIndate= idIndate.replaceAll("日", "");
+        System.out.println(idIndate);//引用地址是否相等
+
+        Integer i1=10000;
+        Integer i2=10000;
+        System.out.print("i1和i2比较的结果：");
+        System.out.println(i1==i2);
+
+        int i3=10000;
+        int i4=10000;
+        System.out.print("i3和i4比较的结果：");
+        System.out.println(i3==i4);
+
+        Integer i5=100;
+        Integer i6=100;
+        System.out.print("i5和i6比较的结果：");
+        System.out.println(i5==i6);
+
+        Integer i7=new Integer(10000);
+        Integer i8=new Integer(10000);;
+        System.out.print("i7和i8比较的结果：");
+        System.out.println(i7==i8);
+
+        StringBuilder sb = new StringBuilder();
+        IntStream.range(1,10).forEach(i->{
+            sb.append(i+"");
+            if( i < 10){
+                sb.append(",");
+            }
+        });
+        System.out.println("sb==="+sb);
+
+        StringJoiner sj = new StringJoiner(",");
+        IntStream.range(1,10).forEach(i->sj.add(i+""));
+        System.out.println("sj==="+sj);
+
+        LocalDate l=LocalDate.now();
+
 
     }
 }

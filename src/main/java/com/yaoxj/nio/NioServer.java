@@ -21,10 +21,11 @@ public class NioServer {
         while(true){
             //选择器的select是阻塞事件，等待1秒，是否有事件发，如果没有事件发生，可以做自己的事情
             if (selector.select(1000)==0) {
-                System.out.println("服务器等待了1秒，无事件发生");
+//                System.out.println("服务器等待了1秒，无事件发生");
                 continue;
             }
-            System.out.println("当前有多个事件："+selector.keys().size());
+            System.out.println("当前有多个事件："+selector.keys().size()+
+                    "&&&thread Name==="+Thread.currentThread().getName()+"&&&Thread id==="+Thread.currentThread().getId());
 
 
             //selectionKeys 事件的集合
