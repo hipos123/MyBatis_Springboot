@@ -19,7 +19,7 @@ public interface UserMapper {
 			@Result(property = "updateDate", column = "update_time") })
 	public List<UserEntity> queryList();
 
-    @Select("SELECT * FROM USER WHERE user_id = #{userId}")
+    @Select("SELECT * FROM sys_user WHERE user_id = #{userId}")
     @Results({
             @Result(property = "userId", column = "user_id"),
             @Result(property = "nickName", column = "nick_name"),
@@ -31,16 +31,16 @@ public interface UserMapper {
     UserEntity findById(long userId);
 
 
-    @Insert("INSERT INTO USER(nick_name, user_code) VALUES(#{nickName}, #{userCode})")
+    @Insert("INSERT INTO sys_user(login_name, user_name) VALUES(#{nickName}, #{userCode})")
     int insertParam(@Param("nickName") String nickName, @Param("userCode") String userCode);
 
-    @Insert("INSERT INTO USER(nick_name, user_code) VALUES(#{nickName,jdbcType=VARCHAR}, #{userCode,jdbcType=INTEGER})")
+    @Insert("INSERT INTO sys_user(login_name, user_name) VALUES(#{nickName,jdbcType=VARCHAR}, #{userCode,jdbcType=INTEGER})")
     int insertByMap(Map<String, Object> map);
 
-    @Insert("insert into user(nick_name,user_code,user_name,user_pwd,create_date,update_date) values(#{nickName},#{userCode},#{userName},#{userPwd},#{createDate},#{updateDate})")
+    @Insert("insert into sys_user(login_name,user_code,user_name,password,create_time,update_time) values(#{nickName},#{userCode},#{userName},#{userPwd},#{createDate},#{updateDate})")
 	public int insertEntity(UserEntity entity);
 
-    @Update("UPDATE user SET nick_name=#{nickName} WHERE user_id=#{userId}")
+    @Update("UPDATE sys_user SET login_name=#{nickName} WHERE user_id=#{userId}")
     int updateEntity(UserEntity user);
 
     @Delete("DELETE FROM user WHERE user_id =#{userId}")

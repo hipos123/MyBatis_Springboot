@@ -1,8 +1,6 @@
 package com.yaoxj.netty;
 
 import com.google.common.base.Stopwatch;
-import javafx.scene.paint.Stop;
-
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
 

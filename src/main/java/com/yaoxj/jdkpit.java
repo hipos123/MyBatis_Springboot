@@ -2,6 +2,7 @@ package com.yaoxj;
 
 import cn.hutool.core.util.NumberUtil;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
@@ -139,7 +140,25 @@ public class jdkpit {
         System.out.println("sj==="+sj);
 
         LocalDate l=LocalDate.now();
+        String[] array=new String[10];
+        array[0]="1123";
+        array[1]="333";
+        array[2]="444";
+        array[3]="66";
+        array[4]="6667";
 
+        List arraylists=new ArrayList();
+
+        boolean b = Collections.addAll(arraylists, array);
+        array[4]="babbbbb";
+        System.out.println("coll=="+arraylists);
+
+        List<String> strings = Arrays.asList(array);
+        array[4]="cccccc";
+//        strings.add("0000");
+        //这样做生成的list，是定长的。也就是说，如果你对它做add或者remove，都会抛UnsupportedOperationException。
+        //如果修改数组的值，list中的对应值也会改变！
+        System.out.println(strings);
 
     }
 }

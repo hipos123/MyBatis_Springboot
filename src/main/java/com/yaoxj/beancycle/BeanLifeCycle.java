@@ -1,15 +1,47 @@
 package com.yaoxj.beancycle;
 
+import jdk.nashorn.internal.objects.annotations.Property;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.annotation.PostConstruct;
 
-
+//@PropertySource(value = {"classpath:beancycle.properties"})
+//@ConditionalOnProperty(prefix = "beancycle")
 public class BeanLifeCycle implements
         BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, InitializingBean {
+
+	private Integer age;
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+
+/*private MyBean myBean;
+
+	public MyBean getMyBean() {
+		return myBean;
+	}
+
+	public void setMyBean(MyBean myBean) {
+		System.out.println("set方法开始了吗");
+		this.myBean = myBean;
+	}*/
+
+/*	static{
+		System.out.println("static方法第一个");
+	}*/
 	public BeanLifeCycle(){
 		System.out.println("这个是BeanLifeCycle的构造函数");
+		System.out.println("设置年龄===="+age);
 	}
 
 	public void init(){
@@ -45,7 +77,7 @@ public class BeanLifeCycle implements
 	public void setBeanName(String name) {
 		// TODO Auto-generated method stubBeanNameAware
 
-		System.out.println("BeanNameAware的setBeanName方法==="+name);
+		System.out.println("BeanNameAware的setBeanName方法==="+name+"&&&age==="+age);
 
 	}
 

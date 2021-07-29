@@ -10,6 +10,8 @@ public class BeanLifeCycleTest {
 		// TODO Auto-generated method stub
 		ApplicationContext applicationContext=new AnnotationConfigApplicationContext(LifeCycleConfig.class);
 		System.out.println(applicationContext.getBean("beanLifeCycle"));
+		MyBean mybean = (MyBean) applicationContext.getBean("mybean");
+		mybean.getMyName();
 
 	}
 
