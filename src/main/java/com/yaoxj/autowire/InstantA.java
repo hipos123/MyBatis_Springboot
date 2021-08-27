@@ -1,5 +1,6 @@
 package com.yaoxj.autowire;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,7 +21,12 @@ public class InstantA {
         this.instantB = instantB;
     }
 
-//    public void myName(){
+    public InstantA(InstantB instantB) {
+        System.out.println("instantB的注入方式：构造函数-----------");
+        this.instantB = instantB;
+    }
+
+    //    public void myName(){
 //        instantD.getName();
 //    }
 }

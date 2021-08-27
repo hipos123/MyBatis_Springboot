@@ -3,6 +3,7 @@ package com.yaoxj.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import com.demo.starter.service.DemoService;
 import com.yaoxj.service.BizService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
 import com.yaoxj.service.UserService;
 
+import javax.annotation.Resource;
+import javax.naming.Name;
+
 @RestController
 @Slf4j
 public class UserController {
@@ -21,6 +25,16 @@ public class UserController {
 	private UserService userService;
     @Autowired
     private BizService bb;
+
+    //自定义starter
+    @Resource(name = "demo")
+    private DemoService demoService;
+
+    @RequestMapping("/demostarter")
+    public String demostarter(){
+        String say = demoService.say();
+        return say;
+    }
 
     @RequestMapping("/userlist")
 	public List<UserEntity> queryList(){

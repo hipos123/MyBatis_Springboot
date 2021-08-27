@@ -1,8 +1,10 @@
 package com.yaoxj;
 
+import com.yaoxj.beancycle.proxyfactorybean2.IPrint;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
@@ -18,5 +20,12 @@ public class App {
 	public String  getString(){
 		return new  String();
 	}
+
+//	public App(IPrint printProxy) {
+//		printProxy.execute(10, " log print ");
+//		printProxy.execute(0, " console print ");
+//	}
+
+
 
 }

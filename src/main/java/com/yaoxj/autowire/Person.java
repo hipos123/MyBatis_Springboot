@@ -12,6 +12,13 @@ public class Person {
         this.name = name;
     }
 
+
+    public Person(String name,int age) {
+        System.out.println("调用name的构造函数"+name);
+        this.name = name;
+        this.age = age;
+    }
+
     public Person(int age) {
         System.out.println("调用age的构造函数"+age);
         this.age = age;

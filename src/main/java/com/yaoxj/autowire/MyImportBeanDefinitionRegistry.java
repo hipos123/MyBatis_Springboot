@@ -14,7 +14,7 @@ public class MyImportBeanDefinitionRegistry  implements ImportBeanDefinitionRegi
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         RootBeanDefinition rootBeanDefinition=new RootBeanDefinition(ImportBeanDefRegInstant.class);
-        registry.registerBeanDefinition("importBeanDefRegInstant", rootBeanDefinition);
+        registry.registerBeanDefinition("myimportBeanDefRegInstant", rootBeanDefinition);
 
     }
 }

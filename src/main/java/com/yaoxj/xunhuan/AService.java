@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *  1，实例化(new Aservice())
  *  2,填充属性/依赖注入/属性注入----》填充bservice属性----------》从单例池中找bservice对应的bean---没找到-》触发创建bservice（执行bservice的生命周期）
  *              *  1，实例化(new Bservice())
-             *  *  2,填充属性/依赖注入/属性注入----》填充aservice属性----------》从单例池中找aservice对应的bean---没找到-》触发创建aservice（执行bservice的生命周期）
+             *  *  2,填充属性/依赖注入/属性注入----》填充aservice属性----------》从单例池中找aservice对应的bean---没找到-》触发创建aservice（执行aservice的生命周期）
  *                  到这一步的时候，aservice还没创建出来，就出现了循环依赖的问题。
              *  *
              *  *  3，初始化（init方法，afterset等，在这过程还可能有很多warve的方法）

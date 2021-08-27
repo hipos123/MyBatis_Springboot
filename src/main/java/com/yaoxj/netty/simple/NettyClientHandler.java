@@ -6,6 +6,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
+import java.util.Map;
+
 public class NettyClientHandler  extends ChannelInboundHandlerAdapter {
 
     @Override
@@ -13,6 +15,9 @@ public class NettyClientHandler  extends ChannelInboundHandlerAdapter {
 //        super.channelActive(ctx);
         System.out.println("发送消息给服务端--------");
         ctx.writeAndFlush(Unpooled.copiedBuffer("你好，服务端",CharsetUtil.UTF_8));
+
+
+
     }
 
     @Override

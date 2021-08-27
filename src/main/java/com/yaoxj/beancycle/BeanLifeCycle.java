@@ -1,19 +1,28 @@
 package com.yaoxj.beancycle;
 
 import jdk.nashorn.internal.objects.annotations.Property;
+import lombok.Data;
+import lombok.Setter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
 //@PropertySource(value = {"classpath:beancycle.properties"})
 //@ConditionalOnProperty(prefix = "beancycle")
+@Component
+@Data
 public class BeanLifeCycle implements
-        BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, InitializingBean {
+        BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, InitializingBean
+//		, ResourceLoaderAware
+		 {
 
+	private  String beanName;
 	private Integer age;
 
 	public Integer getAge() {
@@ -76,7 +85,7 @@ public class BeanLifeCycle implements
 
 	public void setBeanName(String name) {
 		// TODO Auto-generated method stubBeanNameAware
-
+		this.beanName=name+"yaoxj";
 		System.out.println("BeanNameAware的setBeanName方法==="+name+"&&&age==="+age);
 
 	}
