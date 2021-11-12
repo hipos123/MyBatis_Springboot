@@ -6,6 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.function.RouterFunction;
+import org.springframework.web.servlet.function.RouterFunctions;
+import org.springframework.web.servlet.function.ServerResponse;
 
 @SpringBootApplication
 @MapperScan("com.yaoxj.*")
@@ -25,6 +28,12 @@ public class App {
 //		printProxy.execute(10, " log print ");
 //		printProxy.execute(0, " console print ");
 //	}
+
+	@Bean
+	public RouterFunction<ServerResponse> router(){
+		return RouterFunctions.route().
+				GET("/fun/getfouter",serverRequest -> ServerResponse.ok().body("hello world")).build();
+	}
 
 
 
