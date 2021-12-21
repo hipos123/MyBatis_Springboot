@@ -16,7 +16,7 @@ public class MySerialDemo {
     /*    oout.writeObject("111aaa");
         oout.close();*/
         //如果MyUser 没有实现序列化，会报错：NotSerializableException
-        MyUser user=new MyUser(18,"test","nan");
+        MyUser user = new MyUser(18, "test", "nan");
         oout.writeObject(user);
         oout.close();
 

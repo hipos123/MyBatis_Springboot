@@ -7,7 +7,6 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class NettyServerHandler extends SimpleChannelInboundHandler<DataInfoPOJO.DataPackage> {
 
 
-
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
     }
@@ -15,7 +14,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<DataInfoPOJO
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        super.exceptionCaught(ctx, cause);
-        System.out.println("服务端发生了异常:--->"+cause.getMessage());
+        System.out.println("服务端发生了异常:--->" + cause.getMessage());
         ctx.close();
     }
 

@@ -19,19 +19,19 @@ public class MyTextFrameHandler extends SimpleChannelInboundHandler<WebSocketFra
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         //asLongText 长id是唯一的。asShortText 短id。不是唯一的
-        System.out.println("handlerAdd 被调用"+ctx.channel().id().asLongText());
-        System.out.println("handlerAdd 被调用"+ctx.channel().id().asShortText());
+        System.out.println("handlerAdd 被调用" + ctx.channel().id().asLongText());
+        System.out.println("handlerAdd 被调用" + ctx.channel().id().asShortText());
     }
 
     //断开连接的时候，会主动触发这个方法，自动移除
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("handlerRemoved 被调用"+ctx.channel().id().asLongText());
+        System.out.println("handlerRemoved 被调用" + ctx.channel().id().asLongText());
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("发生了异常"+cause.getMessage());
+        System.out.println("发生了异常" + cause.getMessage());
         ctx.close();
     }
 
@@ -41,7 +41,7 @@ public class MyTextFrameHandler extends SimpleChannelInboundHandler<WebSocketFra
         Channel channel = ctx.channel();
         // region 判断是否是关闭链路的指令
         if (frame instanceof CloseWebSocketFrame) {
-            System.out.println("├ 关闭与客户端["+ channel.remoteAddress()+"]链接");
+            System.out.println("├ 关闭与客户端[" + channel.remoteAddress() + "]链接");
 //            socketServerHandShaker.close(channel, (CloseWebSocketFrame) frame.retain());
             return;
         }
@@ -56,7 +56,7 @@ public class MyTextFrameHandler extends SimpleChannelInboundHandler<WebSocketFra
         // region 纯文本消息
         if (frame instanceof TextWebSocketFrame) {
             String text = ((TextWebSocketFrame) frame).text();
-            System.out.println("├ ["+new Date()+" 接收到客户端的消息]: "+text );
+            System.out.println("├ [" + new Date() + " 接收到客户端的消息]: " + text);
             channel.writeAndFlush(new TextWebSocketFrame(new Date() + " 服务器将你发的消息原样返回：" + text));
         }
         // endregion

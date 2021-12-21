@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @create: 2021-11-01 15:28
  **/
 public class LamdaDemo {
-    static int[] arr={1,3,4,5,6,7,8,9,10};
+    static int[] arr = {1, 3, 4, 5, 6, 7, 8, 9, 10};
 
     public static void main(String[] args) {
         new Thread(new Runnable() {
@@ -33,8 +33,8 @@ public class LamdaDemo {
         System.out.println();
         Arrays.stream(arr).forEach(System.out::println);*/
 
-        for (int i=0;i<arr.length;i++){
-            arr[i]+=1;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] += 1;
         }
         Arrays.stream(arr).forEach(System.out::println);
 

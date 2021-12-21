@@ -1,6 +1,7 @@
 package com.yaoxj.netty;
 
 import com.google.common.base.Stopwatch;
+
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
 
@@ -15,8 +16,8 @@ public class DiretcMemmoryAccessTest {
         DirectMemmoryAccess();
     }
 
-    public static void heapMemmoryAccess(){
-        Stopwatch stopwatch=Stopwatch.createStarted();
+    public static void heapMemmoryAccess() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
         ByteBuffer buffer = ByteBuffer.allocate(160000);//
         for (int i = 0; i < 900000; i++) {
             for (int j = 0; j < 19900; j++) {
@@ -34,8 +35,8 @@ public class DiretcMemmoryAccessTest {
         System.out.println(stopwatch.elapsed(TimeUnit.SECONDS));
     }
 
-    public static void DirectMemmoryAccess(){
-        Stopwatch stopwatch=Stopwatch.createStarted();
+    public static void DirectMemmoryAccess() {
+        Stopwatch stopwatch = Stopwatch.createStarted();
         ByteBuffer buffer = ByteBuffer.allocateDirect(160000);//直接内存
         for (int i = 0; i < 900000; i++) {
             for (int j = 0; j < 19900; j++) {

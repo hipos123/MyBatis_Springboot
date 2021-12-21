@@ -17,7 +17,7 @@ public class NettyClient {
     public static void main(String[] args) {
         NioEventLoopGroup clientGroup = new NioEventLoopGroup();
         try {
-            Bootstrap bootstrap=new Bootstrap();
+            Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(clientGroup)
                     .channel(NioSocketChannel.class)
                     .handler(new ChannelInitializer<SocketChannel>() {
@@ -33,13 +33,13 @@ public class NettyClient {
                     });
 
             System.out.println("客户端启动成功------------");
-            ChannelFuture channelFuture= null;
+            ChannelFuture channelFuture = null;
 
-            channelFuture = bootstrap.connect("127.0.0.1",6668).sync();
+            channelFuture = bootstrap.connect("127.0.0.1", 6668).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             clientGroup.shutdownGracefully();
         }
 

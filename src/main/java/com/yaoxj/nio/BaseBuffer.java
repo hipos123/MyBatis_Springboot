@@ -12,8 +12,8 @@ public class BaseBuffer {
         //    private int capacity; //容量
         IntBuffer intBuffer = IntBuffer.allocate(5);
 //        intBuffer.put(0);
-        for (int i = 0; i <5 ; i++) {
-            intBuffer.put(i*2);
+        for (int i = 0; i < 5; i++) {
+            intBuffer.put(i * 2);
         }
         //intBuffer 有值 0，2，4，6，8
         //flip 读写反转
@@ -22,7 +22,7 @@ public class BaseBuffer {
         //将buffer的位置指到第二个位置上，从第二个位置开始读取数据
         intBuffer.position(2);
 
-        while(intBuffer.hasRemaining()){
+        while (intBuffer.hasRemaining()) {
             System.out.println(intBuffer.get());
         }
     }

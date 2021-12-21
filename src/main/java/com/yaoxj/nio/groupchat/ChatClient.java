@@ -17,16 +17,16 @@ import java.util.Set;
  * @create: 2021-01-14 15:12
  **/
 public class ChatClient {
-    private static final String HOST="127.0.0.1";
-    private static final int PORT=6666;
-    private Selector selector=null;
-    private SocketChannel socketChannel=null;
-    String username=null;
+    private static final String HOST = "127.0.0.1";
+    private static final int PORT = 6666;
+    private Selector selector = null;
+    private SocketChannel socketChannel = null;
+    String username = null;
 
     public ChatClient() throws IOException {
         selector = Selector.open();
         //连接服务器
-        socketChannel =  SocketChannel.open(new InetSocketAddress(HOST,PORT));
+        socketChannel = SocketChannel.open(new InetSocketAddress(HOST, PORT));
         //设置非阻塞
         socketChannel.configureBlocking(false);
         //将channel注册到selector上
@@ -37,14 +37,14 @@ public class ChatClient {
 
     public void readInfo() throws IOException {
         int select = selector.select(2000);
-        if(select>0){
+        if (select > 0) {
             Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
-            while(iterator.hasNext()){
+            while (iterator.hasNext()) {
                 SelectionKey selectionKey = iterator.next();
                 SocketChannel channel = (SocketChannel) selectionKey.channel();
-                ByteBuffer byteBuffer=ByteBuffer.allocate(1024);
+                ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
                 channel.read(byteBuffer);
-                System.out.println("从服务端读取到的数据是："+new String(byteBuffer.array()));
+                System.out.println("从服务端读取到的数据是：" + new String(byteBuffer.array()));
                 iterator.remove();
             }
 
@@ -52,17 +52,17 @@ public class ChatClient {
     }
 
     public void writeInfo2Server(String msg) throws IOException {
-        String str=username+"说:"+msg;
-        ByteBuffer byteBuffer=ByteBuffer.wrap(str.getBytes());
+        String str = username + "说:" + msg;
+        ByteBuffer byteBuffer = ByteBuffer.wrap(str.getBytes());
         socketChannel.write(byteBuffer);
     }
 
     public static void main(String[] args) throws IOException {
-        ChatClient client=new ChatClient();
+        ChatClient client = new ChatClient();
         new Thread() {
             @Override
             public void run() {
-                while(true){
+                while (true) {
                     try {
                         client.readInfo();
                     } catch (IOException e) {
@@ -78,16 +78,12 @@ public class ChatClient {
             }
         }.start();
 
-        Scanner scanner=new Scanner(System.in);
-        while (scanner.hasNext()){
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
             String s = scanner.nextLine();
             client.writeInfo2Server(s);
         }
     }
-
-
-
-
 
 
 }

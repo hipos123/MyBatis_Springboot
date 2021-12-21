@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  **/
 public class JavaMemoryOutGc {
     public static void main(String[] args) {
-        List<JavaMemoryOutGc> list=new ArrayList<>();
-        while (true){
+        List<JavaMemoryOutGc> list = new ArrayList<>();
+        while (true) {
             list.add(new JavaMemoryOutGc());
            /* try {
                 Thread.sleep(100);

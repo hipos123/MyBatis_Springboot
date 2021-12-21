@@ -1,13 +1,13 @@
 package com.yaoxj.nio.epollbug;
 
 /**
- * @description:运行程序后，客户端连接进来，什么工作都不做，但CPU利用率却已经达到100%
- * Squashing the famous epoll bug（压碎著名的epoll bug)
- *     Linux-like OSs的选择器使用的是epoll-IO事件通知工具。操作系统使用这一高性能的技术与网络协议栈异步工作。
- *     不幸的是，即使是现在，著名的epoll-bug也可能会导致无效的状态选择和100%的CPU利用率。要解决epoll-bug的唯一方法是回收旧的选择器，将先前注册的通道实例转移到新创建的选择器上。
+ * @description:运行程序后，客户端连接进来，什么工作都不做，但CPU利用率却已经达到100% Squashing the famous epoll bug（压碎著名的epoll bug)
+ * Linux-like OSs的选择器使用的是epoll-IO事件通知工具。操作系统使用这一高性能的技术与网络协议栈异步工作。
+ * 不幸的是，即使是现在，著名的epoll-bug也可能会导致无效的状态选择和100%的CPU利用率。要解决epoll-bug的唯一方法是回收旧的选择器，将先前注册的通道实例转移到新创建的选择器上。
  * @author: yaoxj
  * @create: 2021-02-23 10:45
  **/
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -46,8 +46,7 @@ public class PlainNioEchoServer {
                 System.out.println(".............");
                 int select = selector.select(10);
                 System.out.println("selected keys:" + select);
-            }
-            catch (IOException ex) {
+            } catch (IOException ex) {
                 ex.printStackTrace();
                 // handle in a proper way
                 break;
@@ -80,13 +79,11 @@ public class PlainNioEchoServer {
                         client.write(output);
                         output.compact();
                     }
-                }
-                catch (IOException ex) {
+                } catch (IOException ex) {
                     key.cancel();
                     try {
                         key.channel().close();
-                    }
-                    catch (IOException cex) {
+                    } catch (IOException cex) {
                     }
                 }
             }

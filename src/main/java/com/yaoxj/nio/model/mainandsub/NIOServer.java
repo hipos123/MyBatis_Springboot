@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
  * @create: 2021-02-22 17:22
  **/
 public class NIOServer {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         // 1.创建ServerSocketChannel
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
@@ -44,7 +44,7 @@ public class NIOServer {
                 try {
                     if (selectionKey.isAcceptable()) {  // 接受事件就绪
                         // 获取serverSocketChannel
-                        ServerSocketChannel server = (ServerSocketChannel)selectionKey.channel();
+                        ServerSocketChannel server = (ServerSocketChannel) selectionKey.channel();
                         // 接收连接
                         SocketChannel client = server.accept();
                         client.configureBlocking(false);

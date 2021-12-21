@@ -11,11 +11,11 @@ import io.netty.util.CharsetUtil;
  * @author: yaoxj
  * @create: 2021-03-18 15:32
  **/
-public class MsgPackegeEncoder  extends MessageToByteEncoder<ProtocolPkg> {
+public class MsgPackegeEncoder extends MessageToByteEncoder<ProtocolPkg> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, ProtocolPkg msg, ByteBuf out) throws Exception {
         out.writeInt(msg.getLength());
-        out.writeBytes(Unpooled.copiedBuffer(msg.getContent(),CharsetUtil.UTF_8));
+        out.writeBytes(Unpooled.copiedBuffer(msg.getContent(), CharsetUtil.UTF_8));
     }
 }

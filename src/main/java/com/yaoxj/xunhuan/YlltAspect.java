@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class YlltAspect {
 
     @Before("execution(public String com.yaoxj.xunhuan.AService.aTest())")
-    public  void apsectBefore(){
+    public void apsectBefore() {
         System.out.println("aop aspect");
     }
 }

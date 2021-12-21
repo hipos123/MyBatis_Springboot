@@ -17,8 +17,8 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
-        for (int i = 0; i <10 ; i++) {
-            ctx.writeAndFlush(new MyMessage(new MyHead(("abcd"+i).getBytes("UTF-8").length,1),"abcd"+i));
+        for (int i = 0; i < 10; i++) {
+            ctx.writeAndFlush(new MyMessage(new MyHead(("abcd" + i).getBytes("UTF-8").length, 1), "abcd" + i));
         }
 
 

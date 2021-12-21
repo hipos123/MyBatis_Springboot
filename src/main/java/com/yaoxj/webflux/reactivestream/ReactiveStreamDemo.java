@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  **/
 public class ReactiveStreamDemo {
     public static void main(String[] args) {
-        String src="hello my workd adapd helo asda ksiiks fsklfsfhowerc mzxcc";
+        String src = "hello my workd adapd helo asda ksiiks fsklfsfhowerc mzxcc";
         Flux.fromArray(src.split(" ")).flatMap(i -> Flux.fromArray(i.split(""))).distinct().sort().subscribe(System.out::println);
 
     }

@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 public class FileChannelFromFile {
     public static void main(String[] args) throws IOException {
         //将文件内容读进来
-        File file=new File("F://filechannel.txt");
+        File file = new File("F://filechannel.txt");
         FileInputStream fileInputStream = new FileInputStream(file);
         ByteBuffer allocate = ByteBuffer.allocate((int) file.length());
         FileChannel channel = fileInputStream.getChannel();
@@ -20,7 +20,7 @@ public class FileChannelFromFile {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             fileInputStream.close();
         }
 

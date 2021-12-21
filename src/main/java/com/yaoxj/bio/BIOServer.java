@@ -11,19 +11,18 @@ import java.util.concurrent.Executors;
 public class BIOServer {
 
 
-
     public static void main(String[] args) {
 
-        ExecutorService threadPool= Executors.newCachedThreadPool();
+        ExecutorService threadPool = Executors.newCachedThreadPool();
 
         try {
-            ServerSocket serverSocket =new ServerSocket(6666);
-            System.out.println("socker服务端已经启动了，但是还没客户端连接进来======"+Thread.currentThread().getName()
-                    +"&&thread Id==="+Thread.currentThread().getId());
+            ServerSocket serverSocket = new ServerSocket(6666);
+            System.out.println("socker服务端已经启动了，但是还没客户端连接进来======" + Thread.currentThread().getName()
+                    + "&&thread Id===" + Thread.currentThread().getId());
 
-            while (true){
+            while (true) {
                 Socket socket = serverSocket.accept();
-                System.out.println("线程阻塞,有客户端接进来，才会下来,Thread=="+Thread.currentThread().getId()+"&&&name==="+Thread.currentThread().getName());
+                System.out.println("线程阻塞,有客户端接进来，才会下来,Thread==" + Thread.currentThread().getId() + "&&&name===" + Thread.currentThread().getName());
                 threadPool.execute(new Runnable() {
                     @Override
                     public void run() {
@@ -33,31 +32,31 @@ public class BIOServer {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
 
         }
 
     }
 
-    private static void  dataHandler(Socket socket) {
-        System.out.println("dataHandler,Thread=="+Thread.currentThread().getId()+"&&&name==="+Thread.currentThread().getName());
+    private static void dataHandler(Socket socket) {
+        System.out.println("dataHandler,Thread==" + Thread.currentThread().getId() + "&&&name===" + Thread.currentThread().getName());
         InputStream inputStream = null;
         try {
             inputStream = socket.getInputStream();
             byte[] bytes = new byte[1024];
-            while (true){
+            while (true) {
                 int length = inputStream.read(bytes);
-                System.out.println("读取阻塞，读完之后才下来,Thread=="+Thread.currentThread().getId()+"&&&name==="+Thread.currentThread().getName());
-                if(length!=-1){
-                    System.out.println(new String(bytes,0,length));
-                }else{
+                System.out.println("读取阻塞，读完之后才下来,Thread==" + Thread.currentThread().getId() + "&&&name===" + Thread.currentThread().getName());
+                if (length != -1) {
+                    System.out.println(new String(bytes, 0, length));
+                } else {
                     break;
                 }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 socket.close();
             } catch (IOException e) {

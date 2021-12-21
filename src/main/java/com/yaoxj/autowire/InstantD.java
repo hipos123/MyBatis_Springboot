@@ -11,7 +11,7 @@ public class InstantD {
         System.out.println("instantD的构造函数");
     }
 
-    public  void getName(){
+    public void getName() {
         System.out.println("getname========");
     }
 }

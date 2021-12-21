@@ -7,7 +7,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
 
-public class NettyClientHandler  extends SimpleChannelInboundHandler<Long> {
+public class NettyClientHandler extends SimpleChannelInboundHandler<Long> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -21,13 +21,13 @@ public class NettyClientHandler  extends SimpleChannelInboundHandler<Long> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Long msg) throws Exception {
-        System.out.println("获取到服务端发送回来的数据："+msg);
+        System.out.println("获取到服务端发送回来的数据：" + msg);
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        super.exceptionCaught(ctx, cause);
-        System.out.println("出现了异常----》"+cause.getMessage());
+        System.out.println("出现了异常----》" + cause.getMessage());
         ctx.close();
 
     }

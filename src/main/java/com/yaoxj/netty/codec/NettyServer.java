@@ -16,11 +16,11 @@ public class NettyServer {
 
 
         try {
-            ServerBootstrap serverBootstrap=new ServerBootstrap();
-            serverBootstrap.group(bossLoopGroup,workLoopGroup)
+            ServerBootstrap serverBootstrap = new ServerBootstrap();
+            serverBootstrap.group(bossLoopGroup, workLoopGroup)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG,128)
-                    .childOption(ChannelOption.SO_KEEPALIVE,true)
+                    .option(ChannelOption.SO_BACKLOG, 128)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
@@ -37,7 +37,7 @@ public class NettyServer {
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             bossLoopGroup.shutdownGracefully();
             workLoopGroup.shutdownGracefully();
         }

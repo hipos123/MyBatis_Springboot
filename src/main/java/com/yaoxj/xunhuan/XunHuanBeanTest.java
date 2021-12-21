@@ -10,8 +10,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  **/
 public class XunHuanBeanTest {
     public static void main(String[] args) {
-        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(XunHuanBeanConfig.class);
-        AService aService = applicationContext.getBean("aService",AService.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(XunHuanBeanConfig.class);
+        AService aService = applicationContext.getBean("aService", AService.class);
         System.out.println(aService.aTest());
     }
 }

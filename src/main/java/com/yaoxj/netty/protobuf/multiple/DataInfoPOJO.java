@@ -4,2845 +4,3130 @@
 package com.yaoxj.netty.protobuf.multiple;
 
 public final class DataInfoPOJO {
-  private DataInfoPOJO() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface DataPackageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.yaoxj.netty.protobuf.multiple.DataPackage)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-     * @return The enum numeric value on the wire for packageType.
-     */
-    int getPackageTypeValue();
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-     * @return The packageType.
-     */
-    DataPackage.PackageType getPackageType();
-
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-     * @return Whether the sudent field is set.
-     */
-    boolean hasSudent();
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-     * @return The sudent.
-     */
-    Student getSudent();
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-     */
-    StudentOrBuilder getSudentOrBuilder();
-
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-     * @return Whether the dog field is set.
-     */
-    boolean hasDog();
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-     * @return The dog.
-     */
-    Dog getDog();
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-     */
-    DogOrBuilder getDogOrBuilder();
-
-    public DataPackage.PackageCase getPackageCase();
-  }
-  /**
-   * <pre>
-   *生成java code 命令：protoc --java_out=src/main/java/ src/protobuf/Person.proto
-   *----------------多message的根节点
-   * </pre>
-   *
-   * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.DataPackage}
-   */
-  public static final class DataPackage extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.yaoxj.netty.protobuf.multiple.DataPackage)
-      DataPackageOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DataPackage.newBuilder() to construct.
-    private DataPackage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DataPackage() {
-      packageType_ = 0;
+    private DataInfoPOJO() {
     }
 
-    @Override
-    @SuppressWarnings({"unused"})
-    protected Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new DataPackage();
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
     }
 
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DataPackage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              packageType_ = rawValue;
-              break;
-            }
-            case 18: {
-              Student.Builder subBuilder = null;
-              if (packageCase_ == 2) {
-                subBuilder = ((Student) package_).toBuilder();
-              }
-              package_ =
-                  input.readMessage(Student.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((Student) package_);
-                package_ = subBuilder.buildPartial();
-              }
-              packageCase_ = 2;
-              break;
-            }
-            case 26: {
-              Dog.Builder subBuilder = null;
-              if (packageCase_ == 3) {
-                subBuilder = ((Dog) package_).toBuilder();
-              }
-              package_ =
-                  input.readMessage(Dog.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((Dog) package_);
-                package_ = subBuilder.buildPartial();
-              }
-              packageCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
     }
 
-    @Override
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              DataPackage.class, Builder.class);
+    public interface DataPackageOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.yaoxj.netty.protobuf.multiple.DataPackage)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+         *
+         * @return The enum numeric value on the wire for packageType.
+         */
+        int getPackageTypeValue();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+         *
+         * @return The packageType.
+         */
+        DataPackage.PackageType getPackageType();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+         *
+         * @return Whether the sudent field is set.
+         */
+        boolean hasSudent();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+         *
+         * @return The sudent.
+         */
+        Student getSudent();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+         */
+        StudentOrBuilder getSudentOrBuilder();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+         *
+         * @return Whether the dog field is set.
+         */
+        boolean hasDog();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+         *
+         * @return The dog.
+         */
+        Dog getDog();
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+         */
+        DogOrBuilder getDogOrBuilder();
+
+        public DataPackage.PackageCase getPackageCase();
     }
 
     /**
      * <pre>
-     *数据包类型
+     * 生成java code 命令：protoc --java_out=src/main/java/ src/protobuf/Person.proto
+     * ----------------多message的根节点
      * </pre>
-     *
-     * Protobuf enum {@code com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType}
-     */
-    public enum PackageType
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>STUDENT = 0;</code>
-       */
-      STUDENT(0),
-      /**
-       * <code>DOG = 1;</code>
-       */
-      DOG(1),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>STUDENT = 0;</code>
-       */
-      public static final int STUDENT_VALUE = 0;
-      /**
-       * <code>DOG = 1;</code>
-       */
-      public static final int DOG_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @Deprecated
-      public static PackageType valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static PackageType forNumber(int value) {
-        switch (value) {
-          case 0: return STUDENT;
-          case 1: return DOG;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<PackageType>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          PackageType> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<PackageType>() {
-              public PackageType findValueByNumber(int number) {
-                return PackageType.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-          throw new IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return DataPackage.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final PackageType[] VALUES = values();
-
-      public static PackageType valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private PackageType(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType)
-    }
-
-    private int packageCase_ = 0;
-    private Object package_;
-    public enum PackageCase
-        implements com.google.protobuf.Internal.EnumLite,
-            InternalOneOfEnum {
-      SUDENT(2),
-      DOG(3),
-      PACKAGE_NOT_SET(0);
-      private final int value;
-      private PackageCase(int value) {
-        this.value = value;
-      }
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @Deprecated
-      public static PackageCase valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static PackageCase forNumber(int value) {
-        switch (value) {
-          case 2: return SUDENT;
-          case 3: return DOG;
-          case 0: return PACKAGE_NOT_SET;
-          default: return null;
-        }
-      }
-      public int getNumber() {
-        return this.value;
-      }
-    };
-
-    public PackageCase
-    getPackageCase() {
-      return PackageCase.forNumber(
-          packageCase_);
-    }
-
-    public static final int PACKAGE_TYPE_FIELD_NUMBER = 1;
-    private int packageType_;
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-     * @return The enum numeric value on the wire for packageType.
-     */
-    @Override public int getPackageTypeValue() {
-      return packageType_;
-    }
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-     * @return The packageType.
-     */
-    @Override public PackageType getPackageType() {
-      @SuppressWarnings("deprecation")
-      PackageType result = PackageType.valueOf(packageType_);
-      return result == null ? PackageType.UNRECOGNIZED : result;
-    }
-
-    public static final int SUDENT_FIELD_NUMBER = 2;
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-     * @return Whether the sudent field is set.
-     */
-    @Override
-    public boolean hasSudent() {
-      return packageCase_ == 2;
-    }
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-     * @return The sudent.
-     */
-    @Override
-    public Student getSudent() {
-      if (packageCase_ == 2) {
-         return (Student) package_;
-      }
-      return Student.getDefaultInstance();
-    }
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-     */
-    @Override
-    public StudentOrBuilder getSudentOrBuilder() {
-      if (packageCase_ == 2) {
-         return (Student) package_;
-      }
-      return Student.getDefaultInstance();
-    }
-
-    public static final int DOG_FIELD_NUMBER = 3;
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-     * @return Whether the dog field is set.
-     */
-    @Override
-    public boolean hasDog() {
-      return packageCase_ == 3;
-    }
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-     * @return The dog.
-     */
-    @Override
-    public Dog getDog() {
-      if (packageCase_ == 3) {
-         return (Dog) package_;
-      }
-      return Dog.getDefaultInstance();
-    }
-    /**
-     * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-     */
-    @Override
-    public DogOrBuilder getDogOrBuilder() {
-      if (packageCase_ == 3) {
-         return (Dog) package_;
-      }
-      return Dog.getDefaultInstance();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (packageType_ != PackageType.STUDENT.getNumber()) {
-        output.writeEnum(1, packageType_);
-      }
-      if (packageCase_ == 2) {
-        output.writeMessage(2, (Student) package_);
-      }
-      if (packageCase_ == 3) {
-        output.writeMessage(3, (Dog) package_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (packageType_ != PackageType.STUDENT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, packageType_);
-      }
-      if (packageCase_ == 2) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (Student) package_);
-      }
-      if (packageCase_ == 3) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (Dog) package_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof DataPackage)) {
-        return super.equals(obj);
-      }
-      DataPackage other = (DataPackage) obj;
-
-      if (packageType_ != other.packageType_) return false;
-      if (!getPackageCase().equals(other.getPackageCase())) return false;
-      switch (packageCase_) {
-        case 2:
-          if (!getSudent()
-              .equals(other.getSudent())) return false;
-          break;
-        case 3:
-          if (!getDog()
-              .equals(other.getDog())) return false;
-          break;
-        case 0:
-        default:
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PACKAGE_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + packageType_;
-      switch (packageCase_) {
-        case 2:
-          hash = (37 * hash) + SUDENT_FIELD_NUMBER;
-          hash = (53 * hash) + getSudent().hashCode();
-          break;
-        case 3:
-          hash = (37 * hash) + DOG_FIELD_NUMBER;
-          hash = (53 * hash) + getDog().hashCode();
-          break;
-        case 0:
-        default:
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static DataPackage parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static DataPackage parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static DataPackage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static DataPackage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static DataPackage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static DataPackage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static DataPackage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static DataPackage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static DataPackage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static DataPackage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static DataPackage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static DataPackage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(DataPackage prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *生成java code 命令：protoc --java_out=src/main/java/ src/protobuf/Person.proto
-     *----------------多message的根节点
-     * </pre>
-     *
+     * <p>
      * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.DataPackage}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.yaoxj.netty.protobuf.multiple.DataPackage)
-        DataPackageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
-      }
+    public static final class DataPackage extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.yaoxj.netty.protobuf.multiple.DataPackage)
+            DataPackageOrBuilder {
+        private static final long serialVersionUID = 0L;
 
-      @Override
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                DataPackage.class, Builder.class);
-      }
-
-      // Construct using com.yaoxj.netty.protobuf.multiple.DataInfoPOJO.DataPackage.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        // Use DataPackage.newBuilder() to construct.
+        private DataPackage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-      }
-      @Override
-      public Builder clear() {
-        super.clear();
-        packageType_ = 0;
 
-        packageCase_ = 0;
-        package_ = null;
-        return this;
-      }
-
-      @Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
-      }
-
-      @Override
-      public DataPackage getDefaultInstanceForType() {
-        return DataPackage.getDefaultInstance();
-      }
-
-      @Override
-      public DataPackage build() {
-        DataPackage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        private DataPackage() {
+            packageType_ = 0;
         }
-        return result;
-      }
 
-      @Override
-      public DataPackage buildPartial() {
-        DataPackage result = new DataPackage(this);
-        result.packageType_ = packageType_;
-        if (packageCase_ == 2) {
-          if (sudentBuilder_ == null) {
-            result.package_ = package_;
-          } else {
-            result.package_ = sudentBuilder_.build();
-          }
+        @Override
+        @SuppressWarnings({"unused"})
+        protected Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new DataPackage();
         }
-        if (packageCase_ == 3) {
-          if (dogBuilder_ == null) {
-            result.package_ = package_;
-          } else {
-            result.package_ = dogBuilder_.build();
-          }
-        }
-        result.packageCase_ = packageCase_;
-        onBuilt();
-        return result;
-      }
 
-      @Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.setField(field, value);
-      }
-      @Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof DataPackage) {
-          return mergeFrom((DataPackage)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-      }
 
-      public Builder mergeFrom(DataPackage other) {
-        if (other == DataPackage.getDefaultInstance()) return this;
-        if (other.packageType_ != 0) {
-          setPackageTypeValue(other.getPackageTypeValue());
+        private DataPackage(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new NullPointerException();
+            }
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 8: {
+                            int rawValue = input.readEnum();
+
+                            packageType_ = rawValue;
+                            break;
+                        }
+                        case 18: {
+                            Student.Builder subBuilder = null;
+                            if (packageCase_ == 2) {
+                                subBuilder = ((Student) package_).toBuilder();
+                            }
+                            package_ =
+                                    input.readMessage(Student.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom((Student) package_);
+                                package_ = subBuilder.buildPartial();
+                            }
+                            packageCase_ = 2;
+                            break;
+                        }
+                        case 26: {
+                            Dog.Builder subBuilder = null;
+                            if (packageCase_ == 3) {
+                                subBuilder = ((Dog) package_).toBuilder();
+                            }
+                            package_ =
+                                    input.readMessage(Dog.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom((Dog) package_);
+                                package_ = subBuilder.buildPartial();
+                            }
+                            packageCase_ = 3;
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
         }
-        switch (other.getPackageCase()) {
-          case SUDENT: {
-            mergeSudent(other.getSudent());
-            break;
-          }
-          case DOG: {
-            mergeDog(other.getDog());
-            break;
-          }
-          case PACKAGE_NOT_SET: {
-            break;
-          }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
 
-      @Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        DataPackage parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (DataPackage) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        @Override
+        protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            DataPackage.class, Builder.class);
         }
-        return this;
-      }
-      private int packageCase_ = 0;
-      private Object package_;
-      public PackageCase
-          getPackageCase() {
-        return PackageCase.forNumber(
-            packageCase_);
-      }
 
-      public Builder clearPackage() {
-        packageCase_ = 0;
-        package_ = null;
-        onChanged();
-        return this;
-      }
+        /**
+         * <pre>
+         * 数据包类型
+         * </pre>
+         * <p>
+         * Protobuf enum {@code com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType}
+         */
+        public enum PackageType
+                implements com.google.protobuf.ProtocolMessageEnum {
+            /**
+             * <code>STUDENT = 0;</code>
+             */
+            STUDENT(0),
+            /**
+             * <code>DOG = 1;</code>
+             */
+            DOG(1),
+            UNRECOGNIZED(-1),
+            ;
+
+            /**
+             * <code>STUDENT = 0;</code>
+             */
+            public static final int STUDENT_VALUE = 0;
+            /**
+             * <code>DOG = 1;</code>
+             */
+            public static final int DOG_VALUE = 1;
 
 
-      private int packageType_ = 0;
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-       * @return The enum numeric value on the wire for packageType.
-       */
-      @Override public int getPackageTypeValue() {
-        return packageType_;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-       * @param value The enum numeric value on the wire for packageType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPackageTypeValue(int value) {
-        
-        packageType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-       * @return The packageType.
-       */
-      @Override
-      public PackageType getPackageType() {
-        @SuppressWarnings("deprecation")
-        PackageType result = PackageType.valueOf(packageType_);
-        return result == null ? PackageType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-       * @param value The packageType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPackageType(PackageType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        packageType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPackageType() {
-        
-        packageType_ = 0;
-        onChanged();
-        return this;
-      }
+            public final int getNumber() {
+                if (this == UNRECOGNIZED) {
+                    throw new IllegalArgumentException(
+                            "Can't get the number of an unknown enum value.");
+                }
+                return value;
+            }
 
-      private com.google.protobuf.SingleFieldBuilderV3<
-          Student, Student.Builder, StudentOrBuilder> sudentBuilder_;
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       * @return Whether the sudent field is set.
-       */
-      @Override
-      public boolean hasSudent() {
-        return packageCase_ == 2;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       * @return The sudent.
-       */
-      @Override
-      public Student getSudent() {
-        if (sudentBuilder_ == null) {
-          if (packageCase_ == 2) {
-            return (Student) package_;
-          }
-          return Student.getDefaultInstance();
-        } else {
-          if (packageCase_ == 2) {
-            return sudentBuilder_.getMessage();
-          }
-          return Student.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      public Builder setSudent(Student value) {
-        if (sudentBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          package_ = value;
-          onChanged();
-        } else {
-          sudentBuilder_.setMessage(value);
-        }
-        packageCase_ = 2;
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      public Builder setSudent(
-          Student.Builder builderForValue) {
-        if (sudentBuilder_ == null) {
-          package_ = builderForValue.build();
-          onChanged();
-        } else {
-          sudentBuilder_.setMessage(builderForValue.build());
-        }
-        packageCase_ = 2;
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      public Builder mergeSudent(Student value) {
-        if (sudentBuilder_ == null) {
-          if (packageCase_ == 2 &&
-              package_ != Student.getDefaultInstance()) {
-            package_ = Student.newBuilder((Student) package_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            package_ = value;
-          }
-          onChanged();
-        } else {
-          if (packageCase_ == 2) {
-            sudentBuilder_.mergeFrom(value);
-          }
-          sudentBuilder_.setMessage(value);
-        }
-        packageCase_ = 2;
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      public Builder clearSudent() {
-        if (sudentBuilder_ == null) {
-          if (packageCase_ == 2) {
-            packageCase_ = 0;
-            package_ = null;
-            onChanged();
-          }
-        } else {
-          if (packageCase_ == 2) {
-            packageCase_ = 0;
-            package_ = null;
-          }
-          sudentBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      public Student.Builder getSudentBuilder() {
-        return getSudentFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      @Override
-      public StudentOrBuilder getSudentOrBuilder() {
-        if ((packageCase_ == 2) && (sudentBuilder_ != null)) {
-          return sudentBuilder_.getMessageOrBuilder();
-        } else {
-          if (packageCase_ == 2) {
-            return (Student) package_;
-          }
-          return Student.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          Student, Student.Builder, StudentOrBuilder>
-          getSudentFieldBuilder() {
-        if (sudentBuilder_ == null) {
-          if (!(packageCase_ == 2)) {
-            package_ = Student.getDefaultInstance();
-          }
-          sudentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Student, Student.Builder, StudentOrBuilder>(
-                  (Student) package_,
-                  getParentForChildren(),
-                  isClean());
-          package_ = null;
-        }
-        packageCase_ = 2;
-        onChanged();;
-        return sudentBuilder_;
-      }
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
+            @Deprecated
+            public static PackageType valueOf(int value) {
+                return forNumber(value);
+            }
 
-      private com.google.protobuf.SingleFieldBuilderV3<
-          Dog, Dog.Builder, DogOrBuilder> dogBuilder_;
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       * @return Whether the dog field is set.
-       */
-      @Override
-      public boolean hasDog() {
-        return packageCase_ == 3;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       * @return The dog.
-       */
-      @Override
-      public Dog getDog() {
-        if (dogBuilder_ == null) {
-          if (packageCase_ == 3) {
-            return (Dog) package_;
-          }
-          return Dog.getDefaultInstance();
-        } else {
-          if (packageCase_ == 3) {
-            return dogBuilder_.getMessage();
-          }
-          return Dog.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      public Builder setDog(Dog value) {
-        if (dogBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          package_ = value;
-          onChanged();
-        } else {
-          dogBuilder_.setMessage(value);
-        }
-        packageCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      public Builder setDog(
-          Dog.Builder builderForValue) {
-        if (dogBuilder_ == null) {
-          package_ = builderForValue.build();
-          onChanged();
-        } else {
-          dogBuilder_.setMessage(builderForValue.build());
-        }
-        packageCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      public Builder mergeDog(Dog value) {
-        if (dogBuilder_ == null) {
-          if (packageCase_ == 3 &&
-              package_ != Dog.getDefaultInstance()) {
-            package_ = Dog.newBuilder((Dog) package_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            package_ = value;
-          }
-          onChanged();
-        } else {
-          if (packageCase_ == 3) {
-            dogBuilder_.mergeFrom(value);
-          }
-          dogBuilder_.setMessage(value);
-        }
-        packageCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      public Builder clearDog() {
-        if (dogBuilder_ == null) {
-          if (packageCase_ == 3) {
-            packageCase_ = 0;
-            package_ = null;
-            onChanged();
-          }
-        } else {
-          if (packageCase_ == 3) {
-            packageCase_ = 0;
-            package_ = null;
-          }
-          dogBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      public Dog.Builder getDogBuilder() {
-        return getDogFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      @Override
-      public DogOrBuilder getDogOrBuilder() {
-        if ((packageCase_ == 3) && (dogBuilder_ != null)) {
-          return dogBuilder_.getMessageOrBuilder();
-        } else {
-          if (packageCase_ == 3) {
-            return (Dog) package_;
-          }
-          return Dog.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          Dog, Dog.Builder, DogOrBuilder>
-          getDogFieldBuilder() {
-        if (dogBuilder_ == null) {
-          if (!(packageCase_ == 3)) {
-            package_ = Dog.getDefaultInstance();
-          }
-          dogBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Dog, Dog.Builder, DogOrBuilder>(
-                  (Dog) package_,
-                  getParentForChildren(),
-                  isClean());
-          package_ = null;
-        }
-        packageCase_ = 3;
-        onChanged();;
-        return dogBuilder_;
-      }
-      @Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
+            /**
+             * @param value The numeric wire value of the corresponding enum entry.
+             * @return The enum associated with the given numeric wire value.
+             */
+            public static PackageType forNumber(int value) {
+                switch (value) {
+                    case 0:
+                        return STUDENT;
+                    case 1:
+                        return DOG;
+                    default:
+                        return null;
+                }
+            }
 
-      @Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+            public static com.google.protobuf.Internal.EnumLiteMap<PackageType>
+            internalGetValueMap() {
+                return internalValueMap;
+            }
+
+            private static final com.google.protobuf.Internal.EnumLiteMap<
+                    PackageType> internalValueMap =
+                    new com.google.protobuf.Internal.EnumLiteMap<PackageType>() {
+                        public PackageType findValueByNumber(int number) {
+                            return PackageType.forNumber(number);
+                        }
+                    };
+
+            public final com.google.protobuf.Descriptors.EnumValueDescriptor
+            getValueDescriptor() {
+                if (this == UNRECOGNIZED) {
+                    throw new IllegalStateException(
+                            "Can't get the descriptor of an unrecognized enum value.");
+                }
+                return getDescriptor().getValues().get(ordinal());
+            }
+
+            public final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptorForType() {
+                return getDescriptor();
+            }
+
+            public static final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptor() {
+                return DataPackage.getDescriptor().getEnumTypes().get(0);
+            }
+
+            private static final PackageType[] VALUES = values();
+
+            public static PackageType valueOf(
+                    com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+                if (desc.getType() != getDescriptor()) {
+                    throw new IllegalArgumentException(
+                            "EnumValueDescriptor is not for this type.");
+                }
+                if (desc.getIndex() == -1) {
+                    return UNRECOGNIZED;
+                }
+                return VALUES[desc.getIndex()];
+            }
+
+            private final int value;
+
+            private PackageType(int value) {
+                this.value = value;
+            }
+
+            // @@protoc_insertion_point(enum_scope:com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType)
+        }
+
+        private int packageCase_ = 0;
+        private Object package_;
+
+        public enum PackageCase
+                implements com.google.protobuf.Internal.EnumLite,
+                InternalOneOfEnum {
+            SUDENT(2),
+            DOG(3),
+            PACKAGE_NOT_SET(0);
+            private final int value;
+
+            private PackageCase(int value) {
+                this.value = value;
+            }
+
+            /**
+             * @param value The number of the enum to look for.
+             * @return The enum associated with the given number.
+             * @deprecated Use {@link #forNumber(int)} instead.
+             */
+            @Deprecated
+            public static PackageCase valueOf(int value) {
+                return forNumber(value);
+            }
+
+            public static PackageCase forNumber(int value) {
+                switch (value) {
+                    case 2:
+                        return SUDENT;
+                    case 3:
+                        return DOG;
+                    case 0:
+                        return PACKAGE_NOT_SET;
+                    default:
+                        return null;
+                }
+            }
+
+            public int getNumber() {
+                return this.value;
+            }
+        }
+
+        ;
+
+        public PackageCase
+        getPackageCase() {
+            return PackageCase.forNumber(
+                    packageCase_);
+        }
+
+        public static final int PACKAGE_TYPE_FIELD_NUMBER = 1;
+        private int packageType_;
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+         *
+         * @return The enum numeric value on the wire for packageType.
+         */
+        @Override
+        public int getPackageTypeValue() {
+            return packageType_;
+        }
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+         *
+         * @return The packageType.
+         */
+        @Override
+        public PackageType getPackageType() {
+            @SuppressWarnings("deprecation")
+            PackageType result = PackageType.valueOf(packageType_);
+            return result == null ? PackageType.UNRECOGNIZED : result;
+        }
+
+        public static final int SUDENT_FIELD_NUMBER = 2;
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+         *
+         * @return Whether the sudent field is set.
+         */
+        @Override
+        public boolean hasSudent() {
+            return packageCase_ == 2;
+        }
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+         *
+         * @return The sudent.
+         */
+        @Override
+        public Student getSudent() {
+            if (packageCase_ == 2) {
+                return (Student) package_;
+            }
+            return Student.getDefaultInstance();
+        }
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+         */
+        @Override
+        public StudentOrBuilder getSudentOrBuilder() {
+            if (packageCase_ == 2) {
+                return (Student) package_;
+            }
+            return Student.getDefaultInstance();
+        }
+
+        public static final int DOG_FIELD_NUMBER = 3;
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+         *
+         * @return Whether the dog field is set.
+         */
+        @Override
+        public boolean hasDog() {
+            return packageCase_ == 3;
+        }
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+         *
+         * @return The dog.
+         */
+        @Override
+        public Dog getDog() {
+            if (packageCase_ == 3) {
+                return (Dog) package_;
+            }
+            return Dog.getDefaultInstance();
+        }
+
+        /**
+         * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+         */
+        @Override
+        public DogOrBuilder getDogOrBuilder() {
+            if (packageCase_ == 3) {
+                return (Dog) package_;
+            }
+            return Dog.getDefaultInstance();
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        @Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (packageType_ != PackageType.STUDENT.getNumber()) {
+                output.writeEnum(1, packageType_);
+            }
+            if (packageCase_ == 2) {
+                output.writeMessage(2, (Student) package_);
+            }
+            if (packageCase_ == 3) {
+                output.writeMessage(3, (Dog) package_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (packageType_ != PackageType.STUDENT.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(1, packageType_);
+            }
+            if (packageCase_ == 2) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(2, (Student) package_);
+            }
+            if (packageCase_ == 3) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, (Dog) package_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @Override
+        public boolean equals(final Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof DataPackage)) {
+                return super.equals(obj);
+            }
+            DataPackage other = (DataPackage) obj;
+
+            if (packageType_ != other.packageType_) return false;
+            if (!getPackageCase().equals(other.getPackageCase())) return false;
+            switch (packageCase_) {
+                case 2:
+                    if (!getSudent()
+                            .equals(other.getSudent())) return false;
+                    break;
+                case 3:
+                    if (!getDog()
+                            .equals(other.getDog())) return false;
+                    break;
+                case 0:
+                default:
+            }
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + PACKAGE_TYPE_FIELD_NUMBER;
+            hash = (53 * hash) + packageType_;
+            switch (packageCase_) {
+                case 2:
+                    hash = (37 * hash) + SUDENT_FIELD_NUMBER;
+                    hash = (53 * hash) + getSudent().hashCode();
+                    break;
+                case 3:
+                    hash = (37 * hash) + DOG_FIELD_NUMBER;
+                    hash = (53 * hash) + getDog().hashCode();
+                    break;
+                case 0:
+                default:
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static DataPackage parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static DataPackage parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static DataPackage parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static DataPackage parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static DataPackage parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static DataPackage parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static DataPackage parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static DataPackage parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static DataPackage parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static DataPackage parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static DataPackage parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static DataPackage parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        @Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(DataPackage prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        @Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * <pre>
+         * 生成java code 命令：protoc --java_out=src/main/java/ src/protobuf/Person.proto
+         * ----------------多message的根节点
+         * </pre>
+         * <p>
+         * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.DataPackage}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.yaoxj.netty.protobuf.multiple.DataPackage)
+                DataPackageOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
+            }
+
+            @Override
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                DataPackage.class, Builder.class);
+            }
+
+            // Construct using com.yaoxj.netty.protobuf.multiple.DataInfoPOJO.DataPackage.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @Override
+            public Builder clear() {
+                super.clear();
+                packageType_ = 0;
+
+                packageCase_ = 0;
+                package_ = null;
+                return this;
+            }
+
+            @Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
+            }
+
+            @Override
+            public DataPackage getDefaultInstanceForType() {
+                return DataPackage.getDefaultInstance();
+            }
+
+            @Override
+            public DataPackage build() {
+                DataPackage result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @Override
+            public DataPackage buildPartial() {
+                DataPackage result = new DataPackage(this);
+                result.packageType_ = packageType_;
+                if (packageCase_ == 2) {
+                    if (sudentBuilder_ == null) {
+                        result.package_ = package_;
+                    } else {
+                        result.package_ = sudentBuilder_.build();
+                    }
+                }
+                if (packageCase_ == 3) {
+                    if (dogBuilder_ == null) {
+                        result.package_ = package_;
+                    } else {
+                        result.package_ = dogBuilder_.build();
+                    }
+                }
+                result.packageCase_ = packageCase_;
+                onBuilt();
+                return result;
+            }
+
+            @Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return super.setField(field, value);
+            }
+
+            @Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof DataPackage) {
+                    return mergeFrom((DataPackage) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(DataPackage other) {
+                if (other == DataPackage.getDefaultInstance()) return this;
+                if (other.packageType_ != 0) {
+                    setPackageTypeValue(other.getPackageTypeValue());
+                }
+                switch (other.getPackageCase()) {
+                    case SUDENT: {
+                        mergeSudent(other.getSudent());
+                        break;
+                    }
+                    case DOG: {
+                        mergeDog(other.getDog());
+                        break;
+                    }
+                    case PACKAGE_NOT_SET: {
+                        break;
+                    }
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                DataPackage parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (DataPackage) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int packageCase_ = 0;
+            private Object package_;
+
+            public PackageCase
+            getPackageCase() {
+                return PackageCase.forNumber(
+                        packageCase_);
+            }
+
+            public Builder clearPackage() {
+                packageCase_ = 0;
+                package_ = null;
+                onChanged();
+                return this;
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:com.yaoxj.netty.protobuf.multiple.DataPackage)
+            private int packageType_ = 0;
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+             *
+             * @return The enum numeric value on the wire for packageType.
+             */
+            @Override
+            public int getPackageTypeValue() {
+                return packageType_;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+             *
+             * @param value The enum numeric value on the wire for packageType to set.
+             * @return This builder for chaining.
+             */
+            public Builder setPackageTypeValue(int value) {
+
+                packageType_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+             *
+             * @return The packageType.
+             */
+            @Override
+            public PackageType getPackageType() {
+                @SuppressWarnings("deprecation")
+                PackageType result = PackageType.valueOf(packageType_);
+                return result == null ? PackageType.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+             *
+             * @param value The packageType to set.
+             * @return This builder for chaining.
+             */
+            public Builder setPackageType(PackageType value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                packageType_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.DataPackage.PackageType package_type = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearPackageType() {
+
+                packageType_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    Student, Student.Builder, StudentOrBuilder> sudentBuilder_;
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             *
+             * @return Whether the sudent field is set.
+             */
+            @Override
+            public boolean hasSudent() {
+                return packageCase_ == 2;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             *
+             * @return The sudent.
+             */
+            @Override
+            public Student getSudent() {
+                if (sudentBuilder_ == null) {
+                    if (packageCase_ == 2) {
+                        return (Student) package_;
+                    }
+                    return Student.getDefaultInstance();
+                } else {
+                    if (packageCase_ == 2) {
+                        return sudentBuilder_.getMessage();
+                    }
+                    return Student.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            public Builder setSudent(Student value) {
+                if (sudentBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    package_ = value;
+                    onChanged();
+                } else {
+                    sudentBuilder_.setMessage(value);
+                }
+                packageCase_ = 2;
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            public Builder setSudent(
+                    Student.Builder builderForValue) {
+                if (sudentBuilder_ == null) {
+                    package_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    sudentBuilder_.setMessage(builderForValue.build());
+                }
+                packageCase_ = 2;
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            public Builder mergeSudent(Student value) {
+                if (sudentBuilder_ == null) {
+                    if (packageCase_ == 2 &&
+                            package_ != Student.getDefaultInstance()) {
+                        package_ = Student.newBuilder((Student) package_)
+                                .mergeFrom(value).buildPartial();
+                    } else {
+                        package_ = value;
+                    }
+                    onChanged();
+                } else {
+                    if (packageCase_ == 2) {
+                        sudentBuilder_.mergeFrom(value);
+                    }
+                    sudentBuilder_.setMessage(value);
+                }
+                packageCase_ = 2;
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            public Builder clearSudent() {
+                if (sudentBuilder_ == null) {
+                    if (packageCase_ == 2) {
+                        packageCase_ = 0;
+                        package_ = null;
+                        onChanged();
+                    }
+                } else {
+                    if (packageCase_ == 2) {
+                        packageCase_ = 0;
+                        package_ = null;
+                    }
+                    sudentBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            public Student.Builder getSudentBuilder() {
+                return getSudentFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            @Override
+            public StudentOrBuilder getSudentOrBuilder() {
+                if ((packageCase_ == 2) && (sudentBuilder_ != null)) {
+                    return sudentBuilder_.getMessageOrBuilder();
+                } else {
+                    if (packageCase_ == 2) {
+                        return (Student) package_;
+                    }
+                    return Student.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Student sudent = 2;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    Student, Student.Builder, StudentOrBuilder>
+            getSudentFieldBuilder() {
+                if (sudentBuilder_ == null) {
+                    if (!(packageCase_ == 2)) {
+                        package_ = Student.getDefaultInstance();
+                    }
+                    sudentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            Student, Student.Builder, StudentOrBuilder>(
+                            (Student) package_,
+                            getParentForChildren(),
+                            isClean());
+                    package_ = null;
+                }
+                packageCase_ = 2;
+                onChanged();
+                ;
+                return sudentBuilder_;
+            }
+
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    Dog, Dog.Builder, DogOrBuilder> dogBuilder_;
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             *
+             * @return Whether the dog field is set.
+             */
+            @Override
+            public boolean hasDog() {
+                return packageCase_ == 3;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             *
+             * @return The dog.
+             */
+            @Override
+            public Dog getDog() {
+                if (dogBuilder_ == null) {
+                    if (packageCase_ == 3) {
+                        return (Dog) package_;
+                    }
+                    return Dog.getDefaultInstance();
+                } else {
+                    if (packageCase_ == 3) {
+                        return dogBuilder_.getMessage();
+                    }
+                    return Dog.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            public Builder setDog(Dog value) {
+                if (dogBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    package_ = value;
+                    onChanged();
+                } else {
+                    dogBuilder_.setMessage(value);
+                }
+                packageCase_ = 3;
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            public Builder setDog(
+                    Dog.Builder builderForValue) {
+                if (dogBuilder_ == null) {
+                    package_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    dogBuilder_.setMessage(builderForValue.build());
+                }
+                packageCase_ = 3;
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            public Builder mergeDog(Dog value) {
+                if (dogBuilder_ == null) {
+                    if (packageCase_ == 3 &&
+                            package_ != Dog.getDefaultInstance()) {
+                        package_ = Dog.newBuilder((Dog) package_)
+                                .mergeFrom(value).buildPartial();
+                    } else {
+                        package_ = value;
+                    }
+                    onChanged();
+                } else {
+                    if (packageCase_ == 3) {
+                        dogBuilder_.mergeFrom(value);
+                    }
+                    dogBuilder_.setMessage(value);
+                }
+                packageCase_ = 3;
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            public Builder clearDog() {
+                if (dogBuilder_ == null) {
+                    if (packageCase_ == 3) {
+                        packageCase_ = 0;
+                        package_ = null;
+                        onChanged();
+                    }
+                } else {
+                    if (packageCase_ == 3) {
+                        packageCase_ = 0;
+                        package_ = null;
+                    }
+                    dogBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            public Dog.Builder getDogBuilder() {
+                return getDogFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            @Override
+            public DogOrBuilder getDogOrBuilder() {
+                if ((packageCase_ == 3) && (dogBuilder_ != null)) {
+                    return dogBuilder_.getMessageOrBuilder();
+                } else {
+                    if (packageCase_ == 3) {
+                        return (Dog) package_;
+                    }
+                    return Dog.getDefaultInstance();
+                }
+            }
+
+            /**
+             * <code>.com.yaoxj.netty.protobuf.multiple.Dog dog = 3;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    Dog, Dog.Builder, DogOrBuilder>
+            getDogFieldBuilder() {
+                if (dogBuilder_ == null) {
+                    if (!(packageCase_ == 3)) {
+                        package_ = Dog.getDefaultInstance();
+                    }
+                    dogBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            Dog, Dog.Builder, DogOrBuilder>(
+                            (Dog) package_,
+                            getParentForChildren(),
+                            isClean());
+                    package_ = null;
+                }
+                packageCase_ = 3;
+                onChanged();
+                ;
+                return dogBuilder_;
+            }
+
+            @Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:com.yaoxj.netty.protobuf.multiple.DataPackage)
+        }
+
+        // @@protoc_insertion_point(class_scope:com.yaoxj.netty.protobuf.multiple.DataPackage)
+        private static final DataPackage DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new DataPackage();
+        }
+
+        public static DataPackage getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<DataPackage>
+                PARSER = new com.google.protobuf.AbstractParser<DataPackage>() {
+            @Override
+            public DataPackage parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new DataPackage(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<DataPackage> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<DataPackage> getParserForType() {
+            return PARSER;
+        }
+
+        @Override
+        public DataPackage getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
     }
 
-    // @@protoc_insertion_point(class_scope:com.yaoxj.netty.protobuf.multiple.DataPackage)
-    private static final DataPackage DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new DataPackage();
-    }
+    public interface StudentOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.yaoxj.netty.protobuf.multiple.Student)
+            com.google.protobuf.MessageOrBuilder {
 
-    public static DataPackage getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+        /**
+         * <code>string name = 1;</code>
+         *
+         * @return Whether the name field is set.
+         */
+        boolean hasName();
 
-    private static final com.google.protobuf.Parser<DataPackage>
-        PARSER = new com.google.protobuf.AbstractParser<DataPackage>() {
-      @Override
-      public DataPackage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataPackage(input, extensionRegistry);
-      }
-    };
+        /**
+         * <code>string name = 1;</code>
+         *
+         * @return The name.
+         */
+        String getName();
 
-    public static com.google.protobuf.Parser<DataPackage> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<DataPackage> getParserForType() {
-      return PARSER;
-    }
-
-    @Override
-    public DataPackage getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface StudentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.yaoxj.netty.protobuf.multiple.Student)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string name = 1;</code>
-     * @return Whether the name field is set.
-     */
-    boolean hasName();
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    String getName();
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    com.google.protobuf.ByteString
+        /**
+         * <code>string name = 1;</code>
+         *
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
         getNameBytes();
 
-    /**
-     * <code>int32 age = 2;</code>
-     * @return Whether the age field is set.
-     */
-    boolean hasAge();
-    /**
-     * <code>int32 age = 2;</code>
-     * @return The age.
-     */
-    int getAge();
+        /**
+         * <code>int32 age = 2;</code>
+         *
+         * @return Whether the age field is set.
+         */
+        boolean hasAge();
 
-    /**
-     * <code>string address = 3;</code>
-     * @return Whether the address field is set.
-     */
-    boolean hasAddress();
-    /**
-     * <code>string address = 3;</code>
-     * @return The address.
-     */
-    String getAddress();
-    /**
-     * <code>string address = 3;</code>
-     * @return The bytes for address.
-     */
-    com.google.protobuf.ByteString
+        /**
+         * <code>int32 age = 2;</code>
+         *
+         * @return The age.
+         */
+        int getAge();
+
+        /**
+         * <code>string address = 3;</code>
+         *
+         * @return Whether the address field is set.
+         */
+        boolean hasAddress();
+
+        /**
+         * <code>string address = 3;</code>
+         *
+         * @return The address.
+         */
+        String getAddress();
+
+        /**
+         * <code>string address = 3;</code>
+         *
+         * @return The bytes for address.
+         */
+        com.google.protobuf.ByteString
         getAddressBytes();
-  }
-  /**
-   * <pre>
-   *----------------多message
-   * </pre>
-   *
-   * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.Student}
-   */
-  public static final class Student extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.yaoxj.netty.protobuf.multiple.Student)
-      StudentOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Student.newBuilder() to construct.
-    private Student(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Student() {
-      name_ = "";
-      address_ = "";
     }
 
-    @Override
-    @SuppressWarnings({"unused"})
-    protected Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Student();
-    }
-
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Student(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              name_ = s;
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              age_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              address_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
-    }
-
-    @Override
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              Student.class, Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile Object name_;
-    /**
-     * <code>string name = 1;</code>
-     * @return Whether the name field is set.
-     */
-    @Override
-    public boolean hasName() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    @Override
-    public String getName() {
-      Object ref = name_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int AGE_FIELD_NUMBER = 2;
-    private int age_;
-    /**
-     * <code>int32 age = 2;</code>
-     * @return Whether the age field is set.
-     */
-    @Override
-    public boolean hasAge() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <code>int32 age = 2;</code>
-     * @return The age.
-     */
-    @Override
-    public int getAge() {
-      return age_;
-    }
-
-    public static final int ADDRESS_FIELD_NUMBER = 3;
-    private volatile Object address_;
-    /**
-     * <code>string address = 3;</code>
-     * @return Whether the address field is set.
-     */
-    @Override
-    public boolean hasAddress() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <code>string address = 3;</code>
-     * @return The address.
-     */
-    @Override
-    public String getAddress() {
-      Object ref = address_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        address_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string address = 3;</code>
-     * @return The bytes for address.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getAddressBytes() {
-      Object ref = address_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        address_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, age_);
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, address_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, age_);
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, address_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof Student)) {
-        return super.equals(obj);
-      }
-      Student other = (Student) obj;
-
-      if (hasName() != other.hasName()) return false;
-      if (hasName()) {
-        if (!getName()
-            .equals(other.getName())) return false;
-      }
-      if (hasAge() != other.hasAge()) return false;
-      if (hasAge()) {
-        if (getAge()
-            != other.getAge()) return false;
-      }
-      if (hasAddress() != other.hasAddress()) return false;
-      if (hasAddress()) {
-        if (!getAddress()
-            .equals(other.getAddress())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasName()) {
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
-      }
-      if (hasAge()) {
-        hash = (37 * hash) + AGE_FIELD_NUMBER;
-        hash = (53 * hash) + getAge();
-      }
-      if (hasAddress()) {
-        hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getAddress().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static Student parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Student parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static Student parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Student parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static Student parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Student parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static Student parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static Student parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static Student parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static Student parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static Student parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static Student parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(Student prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * <pre>
-     *----------------多message
+     * ----------------多message
      * </pre>
-     *
+     * <p>
      * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.Student}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.yaoxj.netty.protobuf.multiple.Student)
-        StudentOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
-      }
+    public static final class Student extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.yaoxj.netty.protobuf.multiple.Student)
+            StudentOrBuilder {
+        private static final long serialVersionUID = 0L;
 
-      @Override
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                Student.class, Builder.class);
-      }
-
-      // Construct using com.yaoxj.netty.protobuf.multiple.DataInfoPOJO.Student.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        // Use Student.newBuilder() to construct.
+        private Student(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-      }
-      @Override
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        age_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        address_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
 
-      @Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
-      }
-
-      @Override
-      public Student getDefaultInstanceForType() {
-        return Student.getDefaultInstance();
-      }
-
-      @Override
-      public Student build() {
-        Student result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        private Student() {
+            name_ = "";
+            address_ = "";
         }
-        return result;
-      }
 
-      @Override
-      public Student buildPartial() {
-        Student result = new Student(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
+        @Override
+        @SuppressWarnings({"unused"})
+        protected Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new Student();
         }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.age_ = age_;
-          to_bitField0_ |= 0x00000002;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.address_ = address_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
 
-      @Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.setField(field, value);
-      }
-      @Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Student) {
-          return mergeFrom((Student)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-      }
 
-      public Builder mergeFrom(Student other) {
-        if (other == Student.getDefaultInstance()) return this;
-        if (other.hasName()) {
-          bitField0_ |= 0x00000001;
-          name_ = other.name_;
-          onChanged();
+        private Student(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10: {
+                            String s = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000001;
+                            name_ = s;
+                            break;
+                        }
+                        case 16: {
+                            bitField0_ |= 0x00000002;
+                            age_ = input.readInt32();
+                            break;
+                        }
+                        case 26: {
+                            String s = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000004;
+                            address_ = s;
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
         }
-        if (other.hasAge()) {
-          setAge(other.getAge());
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
         }
-        if (other.hasAddress()) {
-          bitField0_ |= 0x00000004;
-          address_ = other.address_;
-          onChanged();
+
+        @Override
+        protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            Student.class, Builder.class);
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
 
-      @Override
-      public final boolean isInitialized() {
-        return true;
-      }
+        private int bitField0_;
+        public static final int NAME_FIELD_NUMBER = 1;
+        private volatile Object name_;
 
-      @Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        Student parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Student) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        /**
+         * <code>string name = 1;</code>
+         *
+         * @return Whether the name field is set.
+         */
+        @Override
+        public boolean hasName() {
+            return ((bitField0_ & 0x00000001) != 0);
         }
-        return this;
-      }
-      private int bitField0_;
 
-      private Object name_ = "";
-      /**
-       * <code>string name = 1;</code>
-       * @return Whether the name field is set.
-       */
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return The name.
-       */
-      public String getName() {
-        Object ref = name_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (String) ref;
+        /**
+         * <code>string name = 1;</code>
+         *
+         * @return The name.
+         */
+        @Override
+        public String getName() {
+            Object ref = name_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                name_ = s;
+                return s;
+            }
         }
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return The bytes for name.
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+
+        /**
+         * <code>string name = 1;</code>
+         *
+         * @return The bytes for name.
+         */
+        @Override
+        public com.google.protobuf.ByteString
+        getNameBytes() {
+            Object ref = name_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                name_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
         }
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setName(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
 
-      private int age_ ;
-      /**
-       * <code>int32 age = 2;</code>
-       * @return Whether the age field is set.
-       */
-      @Override
-      public boolean hasAge() {
-        return ((bitField0_ & 0x00000002) != 0);
-      }
-      /**
-       * <code>int32 age = 2;</code>
-       * @return The age.
-       */
-      @Override
-      public int getAge() {
-        return age_;
-      }
-      /**
-       * <code>int32 age = 2;</code>
-       * @param value The age to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAge(int value) {
-        bitField0_ |= 0x00000002;
-        age_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 age = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAge() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        age_ = 0;
-        onChanged();
-        return this;
-      }
+        public static final int AGE_FIELD_NUMBER = 2;
+        private int age_;
 
-      private Object address_ = "";
-      /**
-       * <code>string address = 3;</code>
-       * @return Whether the address field is set.
-       */
-      public boolean hasAddress() {
-        return ((bitField0_ & 0x00000004) != 0);
-      }
-      /**
-       * <code>string address = 3;</code>
-       * @return The address.
-       */
-      public String getAddress() {
-        Object ref = address_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          address_ = s;
-          return s;
-        } else {
-          return (String) ref;
+        /**
+         * <code>int32 age = 2;</code>
+         *
+         * @return Whether the age field is set.
+         */
+        @Override
+        public boolean hasAge() {
+            return ((bitField0_ & 0x00000002) != 0);
         }
-      }
-      /**
-       * <code>string address = 3;</code>
-       * @return The bytes for address.
-       */
-      public com.google.protobuf.ByteString
-          getAddressBytes() {
-        Object ref = address_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          address_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+
+        /**
+         * <code>int32 age = 2;</code>
+         *
+         * @return The age.
+         */
+        @Override
+        public int getAge() {
+            return age_;
         }
-      }
-      /**
-       * <code>string address = 3;</code>
-       * @param value The address to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAddress(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        address_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string address = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAddress() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        address_ = getDefaultInstance().getAddress();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string address = 3;</code>
-       * @param value The bytes for address to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAddressBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000004;
-        address_ = value;
-        onChanged();
-        return this;
-      }
-      @Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
 
-      @Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+        public static final int ADDRESS_FIELD_NUMBER = 3;
+        private volatile Object address_;
+
+        /**
+         * <code>string address = 3;</code>
+         *
+         * @return Whether the address field is set.
+         */
+        @Override
+        public boolean hasAddress() {
+            return ((bitField0_ & 0x00000004) != 0);
+        }
+
+        /**
+         * <code>string address = 3;</code>
+         *
+         * @return The address.
+         */
+        @Override
+        public String getAddress() {
+            Object ref = address_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                address_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string address = 3;</code>
+         *
+         * @return The bytes for address.
+         */
+        @Override
+        public com.google.protobuf.ByteString
+        getAddressBytes() {
+            Object ref = address_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                address_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        @Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (((bitField0_ & 0x00000001) != 0)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+            }
+            if (((bitField0_ & 0x00000002) != 0)) {
+                output.writeInt32(2, age_);
+            }
+            if (((bitField0_ & 0x00000004) != 0)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, address_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (((bitField0_ & 0x00000001) != 0)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+            }
+            if (((bitField0_ & 0x00000002) != 0)) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(2, age_);
+            }
+            if (((bitField0_ & 0x00000004) != 0)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, address_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @Override
+        public boolean equals(final Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof Student)) {
+                return super.equals(obj);
+            }
+            Student other = (Student) obj;
+
+            if (hasName() != other.hasName()) return false;
+            if (hasName()) {
+                if (!getName()
+                        .equals(other.getName())) return false;
+            }
+            if (hasAge() != other.hasAge()) return false;
+            if (hasAge()) {
+                if (getAge()
+                        != other.getAge()) return false;
+            }
+            if (hasAddress() != other.hasAddress()) return false;
+            if (hasAddress()) {
+                if (!getAddress()
+                        .equals(other.getAddress())) return false;
+            }
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (hasName()) {
+                hash = (37 * hash) + NAME_FIELD_NUMBER;
+                hash = (53 * hash) + getName().hashCode();
+            }
+            if (hasAge()) {
+                hash = (37 * hash) + AGE_FIELD_NUMBER;
+                hash = (53 * hash) + getAge();
+            }
+            if (hasAddress()) {
+                hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+                hash = (53 * hash) + getAddress().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static Student parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Student parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Student parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Student parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Student parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Student parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Student parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Student parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Student parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static Student parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Student parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Student parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        @Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(Student prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        @Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * <pre>
+         * ----------------多message
+         * </pre>
+         * <p>
+         * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.Student}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.yaoxj.netty.protobuf.multiple.Student)
+                StudentOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
+            }
+
+            @Override
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                Student.class, Builder.class);
+            }
+
+            // Construct using com.yaoxj.netty.protobuf.multiple.DataInfoPOJO.Student.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @Override
+            public Builder clear() {
+                super.clear();
+                name_ = "";
+                bitField0_ = (bitField0_ & ~0x00000001);
+                age_ = 0;
+                bitField0_ = (bitField0_ & ~0x00000002);
+                address_ = "";
+                bitField0_ = (bitField0_ & ~0x00000004);
+                return this;
+            }
+
+            @Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
+            }
+
+            @Override
+            public Student getDefaultInstanceForType() {
+                return Student.getDefaultInstance();
+            }
+
+            @Override
+            public Student build() {
+                Student result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @Override
+            public Student buildPartial() {
+                Student result = new Student(this);
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    to_bitField0_ |= 0x00000001;
+                }
+                result.name_ = name_;
+                if (((from_bitField0_ & 0x00000002) != 0)) {
+                    result.age_ = age_;
+                    to_bitField0_ |= 0x00000002;
+                }
+                if (((from_bitField0_ & 0x00000004) != 0)) {
+                    to_bitField0_ |= 0x00000004;
+                }
+                result.address_ = address_;
+                result.bitField0_ = to_bitField0_;
+                onBuilt();
+                return result;
+            }
+
+            @Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return super.setField(field, value);
+            }
+
+            @Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof Student) {
+                    return mergeFrom((Student) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(Student other) {
+                if (other == Student.getDefaultInstance()) return this;
+                if (other.hasName()) {
+                    bitField0_ |= 0x00000001;
+                    name_ = other.name_;
+                    onChanged();
+                }
+                if (other.hasAge()) {
+                    setAge(other.getAge());
+                }
+                if (other.hasAddress()) {
+                    bitField0_ |= 0x00000004;
+                    address_ = other.address_;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                Student parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (Student) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int bitField0_;
+
+            private Object name_ = "";
+
+            /**
+             * <code>string name = 1;</code>
+             *
+             * @return Whether the name field is set.
+             */
+            public boolean hasName() {
+                return ((bitField0_ & 0x00000001) != 0);
+            }
+
+            /**
+             * <code>string name = 1;</code>
+             *
+             * @return The name.
+             */
+            public String getName() {
+                Object ref = name_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    name_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string name = 1;</code>
+             *
+             * @return The bytes for name.
+             */
+            public com.google.protobuf.ByteString
+            getNameBytes() {
+                Object ref = name_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    name_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string name = 1;</code>
+             *
+             * @param value The name to set.
+             * @return This builder for chaining.
+             */
+            public Builder setName(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                bitField0_ |= 0x00000001;
+                name_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string name = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearName() {
+                bitField0_ = (bitField0_ & ~0x00000001);
+                name_ = getDefaultInstance().getName();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string name = 1;</code>
+             *
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
+             */
+            public Builder setNameBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                bitField0_ |= 0x00000001;
+                name_ = value;
+                onChanged();
+                return this;
+            }
+
+            private int age_;
+
+            /**
+             * <code>int32 age = 2;</code>
+             *
+             * @return Whether the age field is set.
+             */
+            @Override
+            public boolean hasAge() {
+                return ((bitField0_ & 0x00000002) != 0);
+            }
+
+            /**
+             * <code>int32 age = 2;</code>
+             *
+             * @return The age.
+             */
+            @Override
+            public int getAge() {
+                return age_;
+            }
+
+            /**
+             * <code>int32 age = 2;</code>
+             *
+             * @param value The age to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAge(int value) {
+                bitField0_ |= 0x00000002;
+                age_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>int32 age = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearAge() {
+                bitField0_ = (bitField0_ & ~0x00000002);
+                age_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private Object address_ = "";
+
+            /**
+             * <code>string address = 3;</code>
+             *
+             * @return Whether the address field is set.
+             */
+            public boolean hasAddress() {
+                return ((bitField0_ & 0x00000004) != 0);
+            }
+
+            /**
+             * <code>string address = 3;</code>
+             *
+             * @return The address.
+             */
+            public String getAddress() {
+                Object ref = address_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    address_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string address = 3;</code>
+             *
+             * @return The bytes for address.
+             */
+            public com.google.protobuf.ByteString
+            getAddressBytes() {
+                Object ref = address_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    address_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string address = 3;</code>
+             *
+             * @param value The address to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAddress(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                bitField0_ |= 0x00000004;
+                address_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string address = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearAddress() {
+                bitField0_ = (bitField0_ & ~0x00000004);
+                address_ = getDefaultInstance().getAddress();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string address = 3;</code>
+             *
+             * @param value The bytes for address to set.
+             * @return This builder for chaining.
+             */
+            public Builder setAddressBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                bitField0_ |= 0x00000004;
+                address_ = value;
+                onChanged();
+                return this;
+            }
+
+            @Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:com.yaoxj.netty.protobuf.multiple.Student)
+            // @@protoc_insertion_point(builder_scope:com.yaoxj.netty.protobuf.multiple.Student)
+        }
+
+        // @@protoc_insertion_point(class_scope:com.yaoxj.netty.protobuf.multiple.Student)
+        private static final Student DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new Student();
+        }
+
+        public static Student getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Student>
+                PARSER = new com.google.protobuf.AbstractParser<Student>() {
+            @Override
+            public Student parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Student(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<Student> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<Student> getParserForType() {
+            return PARSER;
+        }
+
+        @Override
+        public Student getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
     }
 
-    // @@protoc_insertion_point(class_scope:com.yaoxj.netty.protobuf.multiple.Student)
-    private static final Student DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new Student();
-    }
+    public interface DogOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.yaoxj.netty.protobuf.multiple.Dog)
+            com.google.protobuf.MessageOrBuilder {
 
-    public static Student getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+        /**
+         * <code>string dog_name = 1;</code>
+         *
+         * @return Whether the dogName field is set.
+         */
+        boolean hasDogName();
 
-    private static final com.google.protobuf.Parser<Student>
-        PARSER = new com.google.protobuf.AbstractParser<Student>() {
-      @Override
-      public Student parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Student(input, extensionRegistry);
-      }
-    };
+        /**
+         * <code>string dog_name = 1;</code>
+         *
+         * @return The dogName.
+         */
+        String getDogName();
 
-    public static com.google.protobuf.Parser<Student> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<Student> getParserForType() {
-      return PARSER;
-    }
-
-    @Override
-    public Student getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DogOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.yaoxj.netty.protobuf.multiple.Dog)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string dog_name = 1;</code>
-     * @return Whether the dogName field is set.
-     */
-    boolean hasDogName();
-    /**
-     * <code>string dog_name = 1;</code>
-     * @return The dogName.
-     */
-    String getDogName();
-    /**
-     * <code>string dog_name = 1;</code>
-     * @return The bytes for dogName.
-     */
-    com.google.protobuf.ByteString
+        /**
+         * <code>string dog_name = 1;</code>
+         *
+         * @return The bytes for dogName.
+         */
+        com.google.protobuf.ByteString
         getDogNameBytes();
 
-    /**
-     * <code>int32 dog_age = 2;</code>
-     * @return Whether the dogAge field is set.
-     */
-    boolean hasDogAge();
-    /**
-     * <code>int32 dog_age = 2;</code>
-     * @return The dogAge.
-     */
-    int getDogAge();
-  }
-  /**
-   * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.Dog}
-   */
-  public static final class Dog extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.yaoxj.netty.protobuf.multiple.Dog)
-      DogOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Dog.newBuilder() to construct.
-    private Dog(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Dog() {
-      dogName_ = "";
+        /**
+         * <code>int32 dog_age = 2;</code>
+         *
+         * @return Whether the dogAge field is set.
+         */
+        boolean hasDogAge();
+
+        /**
+         * <code>int32 dog_age = 2;</code>
+         *
+         * @return The dogAge.
+         */
+        int getDogAge();
     }
 
-    @Override
-    @SuppressWarnings({"unused"})
-    protected Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Dog();
-    }
-
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Dog(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              dogName_ = s;
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              dogAge_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
-    }
-
-    @Override
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              Dog.class, Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int DOG_NAME_FIELD_NUMBER = 1;
-    private volatile Object dogName_;
-    /**
-     * <code>string dog_name = 1;</code>
-     * @return Whether the dogName field is set.
-     */
-    @Override
-    public boolean hasDogName() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>string dog_name = 1;</code>
-     * @return The dogName.
-     */
-    @Override
-    public String getDogName() {
-      Object ref = dogName_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        dogName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string dog_name = 1;</code>
-     * @return The bytes for dogName.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getDogNameBytes() {
-      Object ref = dogName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        dogName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int DOG_AGE_FIELD_NUMBER = 2;
-    private int dogAge_;
-    /**
-     * <code>int32 dog_age = 2;</code>
-     * @return Whether the dogAge field is set.
-     */
-    @Override
-    public boolean hasDogAge() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <code>int32 dog_age = 2;</code>
-     * @return The dogAge.
-     */
-    @Override
-    public int getDogAge() {
-      return dogAge_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dogName_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, dogAge_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, dogName_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, dogAge_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof Dog)) {
-        return super.equals(obj);
-      }
-      Dog other = (Dog) obj;
-
-      if (hasDogName() != other.hasDogName()) return false;
-      if (hasDogName()) {
-        if (!getDogName()
-            .equals(other.getDogName())) return false;
-      }
-      if (hasDogAge() != other.hasDogAge()) return false;
-      if (hasDogAge()) {
-        if (getDogAge()
-            != other.getDogAge()) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasDogName()) {
-        hash = (37 * hash) + DOG_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getDogName().hashCode();
-      }
-      if (hasDogAge()) {
-        hash = (37 * hash) + DOG_AGE_FIELD_NUMBER;
-        hash = (53 * hash) + getDogAge();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static Dog parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Dog parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static Dog parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Dog parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static Dog parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Dog parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static Dog parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static Dog parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static Dog parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static Dog parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static Dog parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static Dog parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(Dog prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.Dog}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.yaoxj.netty.protobuf.multiple.Dog)
-        DogOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
-      }
+    public static final class Dog extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.yaoxj.netty.protobuf.multiple.Dog)
+            DogOrBuilder {
+        private static final long serialVersionUID = 0L;
 
-      @Override
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                Dog.class, Builder.class);
-      }
-
-      // Construct using com.yaoxj.netty.protobuf.multiple.DataInfoPOJO.Dog.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        // Use Dog.newBuilder() to construct.
+        private Dog(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-      }
-      @Override
-      public Builder clear() {
-        super.clear();
-        dogName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        dogAge_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
 
-      @Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
-      }
-
-      @Override
-      public Dog getDefaultInstanceForType() {
-        return Dog.getDefaultInstance();
-      }
-
-      @Override
-      public Dog build() {
-        Dog result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        private Dog() {
+            dogName_ = "";
         }
-        return result;
-      }
 
-      @Override
-      public Dog buildPartial() {
-        Dog result = new Dog(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
+        @Override
+        @SuppressWarnings({"unused"})
+        protected Object newInstance(
+                UnusedPrivateParameter unused) {
+            return new Dog();
         }
-        result.dogName_ = dogName_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.dogAge_ = dogAge_;
-          to_bitField0_ |= 0x00000002;
+
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
 
-      @Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.setField(field, value);
-      }
-      @Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Dog) {
-          return mergeFrom((Dog)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        private Dog(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10: {
+                            String s = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000001;
+                            dogName_ = s;
+                            break;
+                        }
+                        case 16: {
+                            bitField0_ |= 0x00000002;
+                            dogAge_ = input.readInt32();
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
         }
-      }
 
-      public Builder mergeFrom(Dog other) {
-        if (other == Dog.getDefaultInstance()) return this;
-        if (other.hasDogName()) {
-          bitField0_ |= 0x00000001;
-          dogName_ = other.dogName_;
-          onChanged();
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
         }
-        if (other.hasDogAge()) {
-          setDogAge(other.getDogAge());
+
+        @Override
+        protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            Dog.class, Builder.class);
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
 
-      @Override
-      public final boolean isInitialized() {
-        return true;
-      }
+        private int bitField0_;
+        public static final int DOG_NAME_FIELD_NUMBER = 1;
+        private volatile Object dogName_;
 
-      @Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        Dog parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Dog) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        /**
+         * <code>string dog_name = 1;</code>
+         *
+         * @return Whether the dogName field is set.
+         */
+        @Override
+        public boolean hasDogName() {
+            return ((bitField0_ & 0x00000001) != 0);
         }
-        return this;
-      }
-      private int bitField0_;
 
-      private Object dogName_ = "";
-      /**
-       * <code>string dog_name = 1;</code>
-       * @return Whether the dogName field is set.
-       */
-      public boolean hasDogName() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>string dog_name = 1;</code>
-       * @return The dogName.
-       */
-      public String getDogName() {
-        Object ref = dogName_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          dogName_ = s;
-          return s;
-        } else {
-          return (String) ref;
+        /**
+         * <code>string dog_name = 1;</code>
+         *
+         * @return The dogName.
+         */
+        @Override
+        public String getDogName() {
+            Object ref = dogName_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                dogName_ = s;
+                return s;
+            }
         }
-      }
-      /**
-       * <code>string dog_name = 1;</code>
-       * @return The bytes for dogName.
-       */
-      public com.google.protobuf.ByteString
-          getDogNameBytes() {
-        Object ref = dogName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          dogName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+
+        /**
+         * <code>string dog_name = 1;</code>
+         *
+         * @return The bytes for dogName.
+         */
+        @Override
+        public com.google.protobuf.ByteString
+        getDogNameBytes() {
+            Object ref = dogName_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                dogName_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
         }
-      }
-      /**
-       * <code>string dog_name = 1;</code>
-       * @param value The dogName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDogName(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        dogName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string dog_name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDogName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        dogName_ = getDefaultInstance().getDogName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string dog_name = 1;</code>
-       * @param value The bytes for dogName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDogNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000001;
-        dogName_ = value;
-        onChanged();
-        return this;
-      }
 
-      private int dogAge_ ;
-      /**
-       * <code>int32 dog_age = 2;</code>
-       * @return Whether the dogAge field is set.
-       */
-      @Override
-      public boolean hasDogAge() {
-        return ((bitField0_ & 0x00000002) != 0);
-      }
-      /**
-       * <code>int32 dog_age = 2;</code>
-       * @return The dogAge.
-       */
-      @Override
-      public int getDogAge() {
-        return dogAge_;
-      }
-      /**
-       * <code>int32 dog_age = 2;</code>
-       * @param value The dogAge to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDogAge(int value) {
-        bitField0_ |= 0x00000002;
-        dogAge_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 dog_age = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDogAge() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        dogAge_ = 0;
-        onChanged();
-        return this;
-      }
-      @Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
+        public static final int DOG_AGE_FIELD_NUMBER = 2;
+        private int dogAge_;
 
-      @Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+        /**
+         * <code>int32 dog_age = 2;</code>
+         *
+         * @return Whether the dogAge field is set.
+         */
+        @Override
+        public boolean hasDogAge() {
+            return ((bitField0_ & 0x00000002) != 0);
+        }
+
+        /**
+         * <code>int32 dog_age = 2;</code>
+         *
+         * @return The dogAge.
+         */
+        @Override
+        public int getDogAge() {
+            return dogAge_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        @Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (((bitField0_ & 0x00000001) != 0)) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dogName_);
+            }
+            if (((bitField0_ & 0x00000002) != 0)) {
+                output.writeInt32(2, dogAge_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (((bitField0_ & 0x00000001) != 0)) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, dogName_);
+            }
+            if (((bitField0_ & 0x00000002) != 0)) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(2, dogAge_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @Override
+        public boolean equals(final Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof Dog)) {
+                return super.equals(obj);
+            }
+            Dog other = (Dog) obj;
+
+            if (hasDogName() != other.hasDogName()) return false;
+            if (hasDogName()) {
+                if (!getDogName()
+                        .equals(other.getDogName())) return false;
+            }
+            if (hasDogAge() != other.hasDogAge()) return false;
+            if (hasDogAge()) {
+                if (getDogAge()
+                        != other.getDogAge()) return false;
+            }
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (hasDogName()) {
+                hash = (37 * hash) + DOG_NAME_FIELD_NUMBER;
+                hash = (53 * hash) + getDogName().hashCode();
+            }
+            if (hasDogAge()) {
+                hash = (37 * hash) + DOG_AGE_FIELD_NUMBER;
+                hash = (53 * hash) + getDogAge();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static Dog parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Dog parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Dog parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Dog parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Dog parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static Dog parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static Dog parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Dog parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Dog parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static Dog parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Dog parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static Dog parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        @Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(Dog prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        @Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code com.yaoxj.netty.protobuf.multiple.Dog}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.yaoxj.netty.protobuf.multiple.Dog)
+                DogOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
+            }
+
+            @Override
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                Dog.class, Builder.class);
+            }
+
+            // Construct using com.yaoxj.netty.protobuf.multiple.DataInfoPOJO.Dog.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @Override
+            public Builder clear() {
+                super.clear();
+                dogName_ = "";
+                bitField0_ = (bitField0_ & ~0x00000001);
+                dogAge_ = 0;
+                bitField0_ = (bitField0_ & ~0x00000002);
+                return this;
+            }
+
+            @Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return DataInfoPOJO.internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
+            }
+
+            @Override
+            public Dog getDefaultInstanceForType() {
+                return Dog.getDefaultInstance();
+            }
+
+            @Override
+            public Dog build() {
+                Dog result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @Override
+            public Dog buildPartial() {
+                Dog result = new Dog(this);
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                if (((from_bitField0_ & 0x00000001) != 0)) {
+                    to_bitField0_ |= 0x00000001;
+                }
+                result.dogName_ = dogName_;
+                if (((from_bitField0_ & 0x00000002) != 0)) {
+                    result.dogAge_ = dogAge_;
+                    to_bitField0_ |= 0x00000002;
+                }
+                result.bitField0_ = to_bitField0_;
+                onBuilt();
+                return result;
+            }
+
+            @Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return super.setField(field, value);
+            }
+
+            @Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof Dog) {
+                    return mergeFrom((Dog) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(Dog other) {
+                if (other == Dog.getDefaultInstance()) return this;
+                if (other.hasDogName()) {
+                    bitField0_ |= 0x00000001;
+                    dogName_ = other.dogName_;
+                    onChanged();
+                }
+                if (other.hasDogAge()) {
+                    setDogAge(other.getDogAge());
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                Dog parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (Dog) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int bitField0_;
+
+            private Object dogName_ = "";
+
+            /**
+             * <code>string dog_name = 1;</code>
+             *
+             * @return Whether the dogName field is set.
+             */
+            public boolean hasDogName() {
+                return ((bitField0_ & 0x00000001) != 0);
+            }
+
+            /**
+             * <code>string dog_name = 1;</code>
+             *
+             * @return The dogName.
+             */
+            public String getDogName() {
+                Object ref = dogName_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    dogName_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string dog_name = 1;</code>
+             *
+             * @return The bytes for dogName.
+             */
+            public com.google.protobuf.ByteString
+            getDogNameBytes() {
+                Object ref = dogName_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    dogName_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string dog_name = 1;</code>
+             *
+             * @param value The dogName to set.
+             * @return This builder for chaining.
+             */
+            public Builder setDogName(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                bitField0_ |= 0x00000001;
+                dogName_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string dog_name = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearDogName() {
+                bitField0_ = (bitField0_ & ~0x00000001);
+                dogName_ = getDefaultInstance().getDogName();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string dog_name = 1;</code>
+             *
+             * @param value The bytes for dogName to set.
+             * @return This builder for chaining.
+             */
+            public Builder setDogNameBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                bitField0_ |= 0x00000001;
+                dogName_ = value;
+                onChanged();
+                return this;
+            }
+
+            private int dogAge_;
+
+            /**
+             * <code>int32 dog_age = 2;</code>
+             *
+             * @return Whether the dogAge field is set.
+             */
+            @Override
+            public boolean hasDogAge() {
+                return ((bitField0_ & 0x00000002) != 0);
+            }
+
+            /**
+             * <code>int32 dog_age = 2;</code>
+             *
+             * @return The dogAge.
+             */
+            @Override
+            public int getDogAge() {
+                return dogAge_;
+            }
+
+            /**
+             * <code>int32 dog_age = 2;</code>
+             *
+             * @param value The dogAge to set.
+             * @return This builder for chaining.
+             */
+            public Builder setDogAge(int value) {
+                bitField0_ |= 0x00000002;
+                dogAge_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>int32 dog_age = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearDogAge() {
+                bitField0_ = (bitField0_ & ~0x00000002);
+                dogAge_ = 0;
+                onChanged();
+                return this;
+            }
+
+            @Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:com.yaoxj.netty.protobuf.multiple.Dog)
+            // @@protoc_insertion_point(builder_scope:com.yaoxj.netty.protobuf.multiple.Dog)
+        }
+
+        // @@protoc_insertion_point(class_scope:com.yaoxj.netty.protobuf.multiple.Dog)
+        private static final Dog DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new Dog();
+        }
+
+        public static Dog getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Dog>
+                PARSER = new com.google.protobuf.AbstractParser<Dog>() {
+            @Override
+            public Dog parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Dog(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<Dog> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<Dog> getParserForType() {
+            return PARSER;
+        }
+
+        @Override
+        public Dog getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
     }
 
-    // @@protoc_insertion_point(class_scope:com.yaoxj.netty.protobuf.multiple.Dog)
-    private static final Dog DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable;
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
+
     static {
-      DEFAULT_INSTANCE = new Dog();
+        String[] descriptorData = {
+                "\n\021DataPackage.proto\022!com.yaoxj.netty.pro" +
+                        "tobuf.multiple\"\204\002\n\013DataPackage\022P\n\014packag" +
+                        "e_type\030\001 \001(\0162:.com.yaoxj.netty.protobuf." +
+                        "multiple.DataPackage.PackageType\022<\n\006sude" +
+                        "nt\030\002 \001(\0132*.com.yaoxj.netty.protobuf.mult" +
+                        "iple.StudentH\000\0225\n\003dog\030\003 \001(\0132&.com.yaoxj." +
+                        "netty.protobuf.multiple.DogH\000\"#\n\013Package" +
+                        "Type\022\013\n\007STUDENT\020\000\022\007\n\003DOG\020\001B\t\n\007Package\"a\n" +
+                        "\007Student\022\021\n\004name\030\001 \001(\tH\000\210\001\001\022\020\n\003age\030\002 \001(\005" +
+                        "H\001\210\001\001\022\024\n\007address\030\003 \001(\tH\002\210\001\001B\007\n\005_nameB\006\n\004" +
+                        "_ageB\n\n\010_address\"K\n\003Dog\022\025\n\010dog_name\030\001 \001(" +
+                        "\tH\000\210\001\001\022\024\n\007dog_age\030\002 \001(\005H\001\210\001\001B\013\n\t_dog_nam" +
+                        "eB\n\n\010_dog_ageB3\n!com.yaoxj.netty.protobu" +
+                        "f.multipleB\014DataInfoPOJOH\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor,
+                new String[]{"PackageType", "Sudent", "Dog", "Package",});
+        internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor,
+                new String[]{"Name", "Age", "Address", "Name", "Age", "Address",});
+        internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor =
+                getDescriptor().getMessageTypes().get(2);
+        internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor,
+                new String[]{"DogName", "DogAge", "DogName", "DogAge",});
     }
 
-    public static Dog getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Dog>
-        PARSER = new com.google.protobuf.AbstractParser<Dog>() {
-      @Override
-      public Dog parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Dog(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Dog> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<Dog> getParserForType() {
-      return PARSER;
-    }
-
-    @Override
-    public Dog getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    String[] descriptorData = {
-      "\n\021DataPackage.proto\022!com.yaoxj.netty.pro" +
-      "tobuf.multiple\"\204\002\n\013DataPackage\022P\n\014packag" +
-      "e_type\030\001 \001(\0162:.com.yaoxj.netty.protobuf." +
-      "multiple.DataPackage.PackageType\022<\n\006sude" +
-      "nt\030\002 \001(\0132*.com.yaoxj.netty.protobuf.mult" +
-      "iple.StudentH\000\0225\n\003dog\030\003 \001(\0132&.com.yaoxj." +
-      "netty.protobuf.multiple.DogH\000\"#\n\013Package" +
-      "Type\022\013\n\007STUDENT\020\000\022\007\n\003DOG\020\001B\t\n\007Package\"a\n" +
-      "\007Student\022\021\n\004name\030\001 \001(\tH\000\210\001\001\022\020\n\003age\030\002 \001(\005" +
-      "H\001\210\001\001\022\024\n\007address\030\003 \001(\tH\002\210\001\001B\007\n\005_nameB\006\n\004" +
-      "_ageB\n\n\010_address\"K\n\003Dog\022\025\n\010dog_name\030\001 \001(" +
-      "\tH\000\210\001\001\022\024\n\007dog_age\030\002 \001(\005H\001\210\001\001B\013\n\t_dog_nam" +
-      "eB\n\n\010_dog_ageB3\n!com.yaoxj.netty.protobu" +
-      "f.multipleB\014DataInfoPOJOH\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_yaoxj_netty_protobuf_multiple_DataPackage_descriptor,
-        new String[] { "PackageType", "Sudent", "Dog", "Package", });
-    internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_com_yaoxj_netty_protobuf_multiple_Student_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_yaoxj_netty_protobuf_multiple_Student_descriptor,
-        new String[] { "Name", "Age", "Address", "Name", "Age", "Address", });
-    internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_com_yaoxj_netty_protobuf_multiple_Dog_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_yaoxj_netty_protobuf_multiple_Dog_descriptor,
-        new String[] { "DogName", "DogAge", "DogName", "DogAge", });
-  }
-
-  // @@protoc_insertion_point(outer_class_scope)
+    // @@protoc_insertion_point(outer_class_scope)
 }

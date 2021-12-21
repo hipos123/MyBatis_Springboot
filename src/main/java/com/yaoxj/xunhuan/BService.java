@@ -15,7 +15,7 @@ public class BService {
     @Autowired
     private AService aService;
 
-    public void bTest(){
+    public void bTest() {
         System.out.println("this is bibibii test");
     }
 }

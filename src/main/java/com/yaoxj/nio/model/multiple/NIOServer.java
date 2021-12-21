@@ -39,7 +39,7 @@ public class NIOServer {
                 try {
                     if (selectionKey.isAcceptable()) {  // 接受事件就绪
                         // 获取serverSocketChannel
-                        ServerSocketChannel server = (ServerSocketChannel)selectionKey.channel();
+                        ServerSocketChannel server = (ServerSocketChannel) selectionKey.channel();
                         // 接收连接
                         client = server.accept();
                         client.configureBlocking(false);

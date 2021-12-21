@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InstantA {
-//    @Autowired
+    //    @Autowired
     private InstantB instantB;
 
 //    @Autowired

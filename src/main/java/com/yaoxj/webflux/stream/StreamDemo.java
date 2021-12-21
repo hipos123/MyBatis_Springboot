@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  **/
 public class StreamDemo {
     public static void main(String[] args) {
-        String[] ary={"redis","nginx","webflux","spring","springboot","bo_le","spring","","nginx"};
+        String[] ary = {"redis", "nginx", "webflux", "spring", "springboot", "bo_le", "spring", "", "nginx"};
         //数组
 //        Arrays.stream(ary).forEach((i) -> System.out.println(i));
 //        //list
@@ -51,15 +51,14 @@ public class StreamDemo {
 //        list.stream().flatMap(s -> Stream.of(s.split(""))).forEach(System.out::println);//一对多的处理，把每个字符串拆成一个个字符，输出，这点map就无法做到。
 
 
-
-        String[] words = new String[]{"Hello","World"};
+        String[] words = new String[]{"Hello", "World"};
 //        List<String> a = Arrays.stream(words)
 //                .map(word -> word.split(""))
 //                .flatMap(Arrays::stream)
 //                .distinct().collect(Collectors.toList());
 //        a.forEach(System.out::print);
 
-        Stream.of(words).flatMap(i->Stream.of(i.split(""))).distinct().collect(Collectors.toList()).forEach(System.out::print);
+        Stream.of(words).flatMap(i -> Stream.of(i.split(""))).distinct().collect(Collectors.toList()).forEach(System.out::print);
 
 
 

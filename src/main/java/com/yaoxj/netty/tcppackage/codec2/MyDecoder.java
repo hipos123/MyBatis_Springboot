@@ -25,7 +25,7 @@ public class MyDecoder extends ByteToMessageDecoder {
 
         String content = new String(body, Charset.forName("UTF-8"));
 
-        MyMessage myMessage = new MyMessage(new MyHead(length,version),content);
+        MyMessage myMessage = new MyMessage(new MyHead(length, version), content);
 
         list.add(myMessage);
     }

@@ -10,12 +10,12 @@ import java.util.UUID;
 
 public class NettyServerHandler extends SimpleChannelInboundHandler<ProtocolPkg> {
 
-    private  int count;
+    private int count;
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        super.exceptionCaught(ctx, cause);
-        System.out.println("服务端发生了异常:--->"+cause.getMessage());
+        System.out.println("服务端发生了异常:--->" + cause.getMessage());
         ctx.close();
     }
 
@@ -32,18 +32,17 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<ProtocolPkg>
     }*/
 
 
-
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ProtocolPkg msg) throws Exception {
-        System.out.println("获取到客户端的长度："+msg.getLength());
-        System.out.println("获取到客户端数据："+msg.getContent());
+        System.out.println("获取到客户端的长度：" + msg.getLength());
+        System.out.println("获取到客户端数据：" + msg.getContent());
 //        ByteBuf byteBuf = Unpooled.copiedBuffer("我是服务端" + (++count), CharsetUtil.UTF_8);
 //        ctx.writeAndFlush(byteBuf);
-        String responseContent= UUID.randomUUID().toString();
-        int repLen=responseContent.getBytes("UTF-8").length;
+        String responseContent = UUID.randomUUID().toString();
+        int repLen = responseContent.getBytes("UTF-8").length;
         byte[] rspByte = responseContent.getBytes("UTF-8");
 
-        ProtocolPkg protocolPkgRsp=new ProtocolPkg();
+        ProtocolPkg protocolPkgRsp = new ProtocolPkg();
         protocolPkgRsp.setLength(repLen);
         protocolPkgRsp.setContent(responseContent);
         ctx.writeAndFlush(protocolPkgRsp);

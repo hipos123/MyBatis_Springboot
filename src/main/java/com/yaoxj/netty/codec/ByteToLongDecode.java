@@ -14,7 +14,7 @@ import java.util.List;
 public class ByteToLongDecode extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-        while (in.readableBytes()>=8){
+        while (in.readableBytes() >= 8) {
             out.add(new Long(in.readLong()));
         }
     }

@@ -50,7 +50,7 @@ class MyJedisPubSub extends JedisPubSub {
      * 当然也可以选择BinaryJedisPubSub,同样是抽象类，但方法参数为byte[]
      **/
     public void onMessage(String channel, String message) {
-        System.out.println(Thread.currentThread().getName()+"-接收到消息:channel=" + channel + ",message=" + message);
+        System.out.println(Thread.currentThread().getName() + "-接收到消息:channel=" + channel + ",message=" + message);
         //接收到exit消息后退出
         if (MessageConsumer.EXIT_COMMAND.equals(message)) {
 //            System.exit(0);

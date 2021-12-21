@@ -14,7 +14,7 @@ public class CService {
     @Autowired
     private AService aService;
 
-    public void cTest(){
+    public void cTest() {
         System.out.println("this is CSERVICE test");
     }
 }

@@ -14,7 +14,7 @@ public class FilechannelCopy {
 
         FileOutputStream destFile = new FileOutputStream("F://file22.txt");
         FileChannel destFileChannel = destFile.getChannel();
-        destFileChannel.transferFrom(sourceFileChannel,0,sourceFileChannel.size());
+        destFileChannel.transferFrom(sourceFileChannel, 0, sourceFileChannel.size());
 
         sourceFile.close();
         sourceFileChannel.close();

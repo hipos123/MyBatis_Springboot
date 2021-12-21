@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class NettyClientHandler  extends SimpleChannelInboundHandler<DataInfoPOJO.DataPackage> {
+public class NettyClientHandler extends SimpleChannelInboundHandler<DataInfoPOJO.DataPackage> {
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     @Override
@@ -52,7 +52,7 @@ public class NettyClientHandler  extends SimpleChannelInboundHandler<DataInfoPOJ
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        super.exceptionCaught(ctx, cause);
-        System.out.println("出现了异常----》"+cause.getMessage());
+        System.out.println("出现了异常----》" + cause.getMessage());
         ctx.close();
 
     }

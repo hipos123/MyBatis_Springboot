@@ -7,31 +7,31 @@
 <body>
 <script>
     var socket;
-    if(window.WebSocket){
-        socket=new WebSocket("ws://localhost:6669/hello");
-        socket.onmessage=function (ev) {
-            var rpMsg=document.getElementById("respMsg");
-            rpMsg.value=rpMsg.value+"\n"+ev.data;
+    if (window.WebSocket) {
+        socket = new WebSocket("ws://localhost:6669/hello");
+        socket.onmessage = function (ev) {
+            var rpMsg = document.getElementById("respMsg");
+            rpMsg.value = rpMsg.value + "\n" + ev.data;
         }
 
-        socket.onopen=function (ev) {
-            var rpMsg=document.getElementById("respMsg");
-            rpMsg.value="客户端和服务端建立了连接";
+        socket.onopen = function (ev) {
+            var rpMsg = document.getElementById("respMsg");
+            rpMsg.value = "客户端和服务端建立了连接";
         }
 
-        socket.onclose=function (ev) {
-            var rpMsg=document.getElementById("respMsg");
-            rpMsg.value=rpMsg.value+"\n"+"客户端和服务端断开了连接";
+        socket.onclose = function (ev) {
+            var rpMsg = document.getElementById("respMsg");
+            rpMsg.value = rpMsg.value + "\n" + "客户端和服务端断开了连接";
         }
-    }else{
+    } else {
         alert('不支持websocket');
     }
 
-    function sendMsg(msg){
-        if(!window.WebSocket){
+    function sendMsg(msg) {
+        if (!window.WebSocket) {
             alert('不支持websocket');
         }
-        if(socket.readyState ==WebSocket.OPEN){
+        if (socket.readyState == WebSocket.OPEN) {
             socket.send(msg);
         }
 

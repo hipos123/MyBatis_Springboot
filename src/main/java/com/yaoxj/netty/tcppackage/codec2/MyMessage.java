@@ -34,6 +34,6 @@ public class MyMessage {
 
     @Override
     public String toString() {
-        return String.format("[length=%d,version=%d,content=%s]",head.getLength(),head.getVersion(),content);
+        return String.format("[length=%d,version=%d,content=%s]", head.getLength(), head.getVersion(), content);
     }
 }

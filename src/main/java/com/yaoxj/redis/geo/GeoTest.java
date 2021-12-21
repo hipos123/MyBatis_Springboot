@@ -16,7 +16,7 @@ import java.util.Map;
  **/
 public class GeoTest {
     @Autowired
-    private RedisTemplate<String,String> redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
 
 
     public void getCircleUser() {
@@ -44,11 +44,11 @@ public class GeoTest {
         }
 
         // 设置检索范围
-        Point point = new Point(121.587623,31.201719);
+        Point point = new Point(121.587623, 31.201719);
         Circle circle = new Circle(point, new Distance(5, Metrics.KILOMETERS));
         // 定义返回结果参数，如果不指定默认只返回content即保存的member信息
         RedisGeoCommands.GeoRadiusCommandArgs args = RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs().includeDistance().includeCoordinates().sortAscending().limit(5);
-        GeoResults<RedisGeoCommands.GeoLocation<String>> results = redisTemplate.opsForGeo().geoRadius("user-local", circle,args);
+        GeoResults<RedisGeoCommands.GeoLocation<String>> results = redisTemplate.opsForGeo().geoRadius("user-local", circle, args);
         List<GeoResult<RedisGeoCommands.GeoLocation<String>>> list = results.getContent();
         for (GeoResult<RedisGeoCommands.GeoLocation<String>> l1 : list) {
             System.out.println("name : " + l1.getContent().getName() + "  distance : " + l1.getDistance() + " point :" + l1.getContent().getPoint());

@@ -20,8 +20,9 @@ public class IdGeneratorService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     private static final String ID_KEY = "id:generator:product";
+
     public Long incrementId() {
-            //delta  设置递增因子
-           return stringRedisTemplate.opsForValue().increment(ID_KEY,1);
+        //delta  设置递增因子
+        return stringRedisTemplate.opsForValue().increment(ID_KEY, 1);
     }
 }

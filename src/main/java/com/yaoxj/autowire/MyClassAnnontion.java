@@ -14,7 +14,8 @@ public class MyClassAnnontion {
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
     @Target(ElementType.TYPE)
-    public @interface EnableSpringStudy111{}
+    public @interface EnableSpringStudy111 {
+    }
 
 
 }

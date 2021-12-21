@@ -54,8 +54,8 @@ public class MyImportSelector implements ImportSelector {
         // EnableAutoConfiguration.class
 
 
-            List<String> autoConfigurations = SpringFactoriesLoader.loadFactoryNames(
-                    EnableSpringStudy.class, MyImportSelector.class.getClassLoader());
+        List<String> autoConfigurations = SpringFactoriesLoader.loadFactoryNames(
+                EnableSpringStudy.class, MyImportSelector.class.getClassLoader());
         return autoConfigurations;
     }
 

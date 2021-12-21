@@ -21,13 +21,13 @@ public class MyNettyHttpServerHandler extends SimpleChannelInboundHandler<FullHt
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest msg) throws Exception {
-        System.out.println("msg instance==="+msg.getClass());
-        HttpRequest httpRequest=msg;
+        System.out.println("msg instance===" + msg.getClass());
+        HttpRequest httpRequest = msg;
 //        httpRequest.getUri()
 //        msg.getUri()
         DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                 HttpResponseStatus.OK,
-                Unpooled.wrappedBuffer((new Date().getTime()+"我是服务端").getBytes())); // 2
+                Unpooled.wrappedBuffer((new Date().getTime() + "我是服务端").getBytes())); // 2
         HttpHeaders heads = response.headers();
         heads.add(HttpHeaderNames.CONTENT_TYPE, contentType + "; charset=UTF-8");
         heads.add(HttpHeaderNames.CONTENT_LENGTH, response.content().readableBytes()); // 3

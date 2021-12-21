@@ -10,7 +10,7 @@ import io.netty.util.ReferenceCountUtil;
  * @author: yaoxj
  * @create: 2021-03-19 14:48
  **/
-public class ServerHandler  extends ChannelInboundHandlerAdapter {
+public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     //每当从客户端收到新的数据时，这个方法会在收到消息时被调用
     @Override

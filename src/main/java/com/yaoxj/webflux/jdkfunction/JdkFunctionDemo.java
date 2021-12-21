@@ -15,35 +15,35 @@ import java.util.function.UnaryOperator;
  **/
 public class JdkFunctionDemo {
     public static void main(String[] args) {
-        Supplier<String> supplier=new Supplier<String>() {
+        Supplier<String> supplier = new Supplier<String>() {
             @Override
             public String get() {
                 return "hello";
             }
         };
 
-        Supplier<String> supplier2=()->"big man";
-        Supplier<String> supplier3=()->{return "big man33333";};
+        Supplier<String> supplier2 = () -> "big man";
+        Supplier<String> supplier3 = () -> {
+            return "big man33333";
+        };
 
         System.out.println(supplier.get());
         System.out.println(supplier2.get());
         System.out.println(supplier3.get());
 
-        Consumer consumer=(i) -> System.out.println("this is my demo=="+i);
+        Consumer consumer = (i) -> System.out.println("this is my demo==" + i);
         consumer.accept("consumer");
 
         //function 输入是T，输出是R,输入输出都一样的情况下使用UnaryOperator
-        Function<Integer,Integer> function=i -> i*i;
+        Function<Integer, Integer> function = i -> i * i;
         System.out.println(function.apply(9));
 
-        UnaryOperator<Integer> unaryOperator=i -> i*i;
+        UnaryOperator<Integer> unaryOperator = i -> i * i;
         System.out.println(unaryOperator.apply(5));
 
         //2个输入参数，一个输出结果
-        BiFunction<Integer,Integer,String> biFunction=(i,j) -> i+"*"+j+"="+i*j;
-        System.out.println(biFunction.apply(3,4));
-
-
+        BiFunction<Integer, Integer, String> biFunction = (i, j) -> i + "*" + j + "=" + i * j;
+        System.out.println(biFunction.apply(3, 4));
 
 
     }

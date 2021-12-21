@@ -16,20 +16,20 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class XunHuanBeanConfig {
 
     @Bean
-    public  AService aService(){
-        AService aService=new AService();
+    public AService aService() {
+        AService aService = new AService();
         return aService;
     }
 
     @Bean
-    public  BService bService(){
-        BService bService=new BService();
+    public BService bService() {
+        BService bService = new BService();
         return bService;
     }
 
     @Bean
-    public  CService cService(){
-        CService cService=new CService();
+    public CService cService() {
+        CService cService = new CService();
         return cService;
     }
 }
