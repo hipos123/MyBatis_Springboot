@@ -1,5 +1,6 @@
 package com.yaoxj.controller;
 
+
 import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
 import com.yaoxj.service.BizService;
@@ -26,10 +27,14 @@ public class MyController {
 	public List<UserEntity> orderList(){
         log.info("获取用户列表数据");
 		PageHelper.startPage(1, 2);
-		log.info("dev_20220301");
+		log.info("我在dev做了修改");
 		return userService.queryList();
 	}
 
+	public UserEntity getUserId(){
+		UserEntity byId = userService.findById(1);
+		return byId;
+	}
 
 
 
