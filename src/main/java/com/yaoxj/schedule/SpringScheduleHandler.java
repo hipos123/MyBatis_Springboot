@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableScheduling
 public class SpringScheduleHandler {
-    @Scheduled(cron = "*/5 * * * * * ")
-    public void execute(){
-        System.out.println("我是你爸爸爸爸爸爸");
-    }
+//    @Scheduled(cron = "*/5 * * * * * ")
+//    public void execute(){
+//        System.out.println("我是你爸爸爸爸爸爸");
+//    }
 }
