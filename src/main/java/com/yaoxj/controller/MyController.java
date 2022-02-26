@@ -1,6 +1,6 @@
 package com.yaoxj.controller;
 
-import com.demo.starter.service.DemoService;
+
 import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
 import com.yaoxj.service.BizService;
@@ -27,6 +27,7 @@ public class MyController {
 	public List<UserEntity> orderList(){
         log.info("获取用户列表数据");
 		PageHelper.startPage(1, 2);
+		log.info("我在master分支下做了修改");
 		return userService.queryList();
 	}
 
