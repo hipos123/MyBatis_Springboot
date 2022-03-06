@@ -48,8 +48,8 @@ public class UserService {
     @Transactional
     public int insertByMap() {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("nickName", "zhaotong");
-        map.put("userCode", "zt");
+        map.put("nickName", "zhaotong"+ new Date());
+        map.put("userCode", "zt"+ new Date());
         return mapper.insertByMap(map);
     }
 

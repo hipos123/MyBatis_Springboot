@@ -2,6 +2,7 @@ package com.yaoxj.entity;
 
 import java.util.Date;
 
+
 public class UserEntity {
     private long userId;
     private String userCode;

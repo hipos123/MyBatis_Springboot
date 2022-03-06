@@ -69,12 +69,19 @@ public class UserController {
 	}
 
     @RequestMapping("/insertParam")
-    public int insertParam() {
+    public int insertParam() throws InterruptedException {
+        Thread.sleep(100);
         return userService.insertParam();
     }
 
     @RequestMapping("/insertByMap")
-    public int insertByMap() {
+    public int insertByMap() throws InterruptedException {
+        Thread.sleep(1000);
+        return userService.insertByMap();
+    }
+    @RequestMapping("/insertByMap2")
+    public int insertByMap2() throws InterruptedException {
+        Thread.sleep(2000);
         return userService.insertByMap();
     }
 

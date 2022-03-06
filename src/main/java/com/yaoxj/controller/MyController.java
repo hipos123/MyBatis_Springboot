@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
 import com.yaoxj.service.BizService;
 import com.yaoxj.service.UserService;
+import com.yaoxj.util.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -31,6 +33,23 @@ public class MyController {
 		return userService.queryList();
 	}
 
+	@RequestMapping("/getUserId")
+	public UserEntity getUserId() throws Exception {
+		UserEntity byId = userService.findById(1);
+		Map map=new HashMap();
+		map.put("username","1111");
+		String s = HttpUtil.httpPost("http://localhost:8083/insertByMap",map);
+		return byId;
+	}
+
+	@RequestMapping("/getUserId2")
+	public UserEntity getUserId2() throws Exception {
+		UserEntity byId = userService.findById(1);
+		Map map=new HashMap();
+		map.put("username","1111");
+		String s = HttpUtil.httpPost("http://localhost:8083/insertByMap2",map);
+		return byId;
+	}
 
 
 
