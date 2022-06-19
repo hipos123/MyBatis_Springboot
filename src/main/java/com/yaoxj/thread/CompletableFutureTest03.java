@@ -5,16 +5,14 @@ import com.github.pagehelper.StringUtil;
 import java.util.concurrent.*;
 
 /**
- * 线程合并操作：2个future只要有一个处理完成，就可以开始做第三个future
- * runAfterEither： 只要有一个future完成，就可以执行第三个任务了，都不需要获取返回值
+ * 线程合并操作
+ * runAfterBoth： task1和task2完成之后，再开始做当前任务
+ * thenAcceptBoth：组合2个future，获取2个future的返回值，然后处理任务，处理自己的这个任务是没有返回值的。
+ * thenCombine 组合2个future，获取2个future的返回值，然后处理自己的future，并获取自己的future返回值。
  *
- * acceptEither：谁先处理完，就获取到谁的返回值，然后开始执行第三个任务，但是第三个任务是没有返回值的。
- *
- * applyToEither:两个future 有一个执行完成，就可以执行第三个任务了，并且可以获取2个future中最先完成的结果，完成第三个任务的时候也有返回值。
- * 同样加了async的话，就是可以使用自己的线程池
- *
+ * thenCombineAsync ,thenAcceptBothAsync,runAfterBothAsync 这三个方法，都可以自己加上自己的线程池，而不用自带的ForkJoinPool
  */
-public class CompletableFutureTest02 {
+public class CompletableFutureTest03 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         /**
          * CompletionStage接口定义了任务编排的方法，执行某一阶段，可以向下执行后续阶段。
@@ -31,15 +29,10 @@ public class CompletableFutureTest02 {
 
         CompletableFuture completableFuture=CompletableFuture.supplyAsync(() -> {
             System.out.println("task01===="+Thread.currentThread().getName());
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             return 10/2;
         },threadPoolExecutor).handle((result,exception) ->{
             if(null!=result){
-                System.out.println("future1执行的返回结果是"+result);
+                System.out.println("执行玩笑的返回结果是"+result);
             }
             if(exception!=null){
                 System.out.println("如果出现异常，异常信息是"+exception);
@@ -58,19 +51,20 @@ public class CompletableFutureTest02 {
         });
 
 
-//        completableFuture.runAfterEither(completableFuture02,()->{
-//            System.out.println("third future start");
-//        });
+/*        completableFuture02.runAfterBoth(completableFuture,()->{
+            System.out.println("两个执行完成了之后开始做这操作");
+        });*/
 
-//        completableFuture.acceptEither(completableFuture02,(r) ->{
-//            System.out.println("获取返回值"+r+",但是没有结果返回");
-//        });
+      /*  completableFuture.thenAcceptBoth(completableFuture02,(t1,t2)->{
+            System.out.println("task1 result="+t1+"&&&&task02 result==="+t2);
+            System.out.println("在这里做其他事情=====");
+        });*/
 
-        CompletableFuture completableFuture03 = completableFuture.applyToEither(completableFuture02, (r) -> {
-            System.out.println("获取到的返回值是" + r);
-            return r + " baby";
+        CompletableFuture completableFuture03 = completableFuture.thenCombine(completableFuture02, (t1, t2) -> {
+            System.out.println("task1 result=" + t1 + "&&&&task02 result===" + t2+"&&Thread name"+Thread.currentThread().getName());
+            System.out.println("在这里做其他事情=====");
+            return 12;
         });
-
         System.out.println("task result==="+completableFuture03.get());
 
 
