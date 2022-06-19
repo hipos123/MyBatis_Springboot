@@ -3,13 +3,14 @@ package com.yaoxj.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.*;
 
 import com.yaoxj.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
-
-public interface UserMapper {
+@Mapper
+public interface UserMapper  extends BaseMapper<UserEntity> {
     @Select("select * from sys_user ")
     @Results({
             @Result(property = "userId", column = "user_id"),
@@ -17,6 +18,8 @@ public interface UserMapper {
             @Result(property = "userCode", column = "user_type"),
             @Result(property = "userName", column = "user_name"),
             @Result(property = "userPwd", column = "password"),
+            @Result(property = "email", column = "email"),
+            @Result(property = "phonenumber", column = "phonenumber"),
             @Result(property = "createDate", column = "create_time"),
             @Result(property = "updateDate", column = "update_time")})
     public List<UserEntity> queryList();

@@ -1,12 +1,17 @@
 package com.yaoxj.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import com.demo.starter.service.DemoService;
+import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
 import com.yaoxj.service.BizService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +31,10 @@ public class UserController {
     @Autowired
     private BizService bb;
 
+
+//    test.val=012333
+//    @Value("test.val")
+//    int val;
     //自定义starter
     @Resource(name = "demo")
     private DemoService demoService;
@@ -38,7 +47,7 @@ public class UserController {
 
     @RequestMapping("/userlist")
 	public List<UserEntity> queryList(){
-        log.info("获取用户列表数据");
+//        log.info("获取用户列表数据"+val);
 		PageHelper.startPage(1, 2);
 		return userService.queryList();
 	}
@@ -82,11 +91,48 @@ public class UserController {
     @RequestMapping("/insertByMap2")
     public int insertByMap2() throws InterruptedException {
         Thread.sleep(2000);
+
         return userService.insertByMap();
     }
 
+    @RequestMapping("/insertBatch")
+    public boolean insertBatch() throws InterruptedException {
+//        Thread.sleep(2000);
+
+        List<UserEntity> list= Lists.newArrayList();
+        for (int i=0;i<10000;i++){
+            UserEntity userEntity=new UserEntity();
+//            userEntity.setUserCode("mycode"+i);
+            userEntity.setUserName("myname"+i);
+            userEntity.setNickName("nickname"+i);
+            list.add(userEntity);
+        }
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        boolean b = userService.saveBatch(list);
+        System.out.println(stopwatch.elapsed(TimeUnit.MILLISECONDS));;
+        return b;
+    }
+
+    @RequestMapping("/insertBatch2")
+    public void insertBatch2() throws InterruptedException {
+//        Thread.sleep(2000);
+
+        List<UserEntity> list= Lists.newArrayList();
+        for (int i=0;i<10000;i++){
+            UserEntity userEntity=new UserEntity();
+//            userEntity.setUserCode("mycode"+i);
+            userEntity.setUserName("myname"+i);
+            userEntity.setNickName("nickname"+i);
+            list.add(userEntity);
+        }
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        userService.batchInsert(list,50);
+        System.out.println(stopwatch.elapsed(TimeUnit.MILLISECONDS));;
+    }
+
+
     @RequestMapping("/updateEntity")
-    public int updateEntity() {
+    public int updateEntity() throws InterruptedException {
         return userService.updateEntity();
     }
 
@@ -96,7 +142,7 @@ public class UserController {
     }
 
     @RequestMapping("/doTransTest")
-    public void doTransTest() {
+    public void doTransTest() throws InterruptedException {
         userService.doTranscationTest();
     }
 

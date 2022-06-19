@@ -1,16 +1,54 @@
 package com.yaoxj.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.yaoxj.sensitive.annotation.SensitiveChineseName;
+import com.yaoxj.sensitive.annotation.SensitiveEmail;
+import com.yaoxj.sensitive.annotation.SensitiveMobile;
+
+
 import java.util.Date;
 
 
+@TableName("sys_user")
 public class UserEntity {
     private long userId;
     private String userCode;
+
+//    @SensitiveInfo(value = SensitiveType.CHINESE_NAME_FIRST,prefixLen = 1)
+    @SensitiveChineseName
     private String userName;
+//    @SensitiveInfo(value = SensitiveType.CHINESE_NAME_FIRST,prefixLen = 1,suffixLen = 3)
+    @SensitiveChineseName
+    @TableField("login_name")
+    @JSONField(name="nickName",serialzeFeatures= {SerializerFeature.WriteMapNullValue,SerializerFeature.WriteNullStringAsEmpty})
     private String nickName;
     private String userPwd;
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     private Date createDate;
     private Date updateDate;
+    @SensitiveMobile
+    private String phonenumber;
+    @SensitiveEmail
+    private String email;
 
     public long getUserId() {
         return userId;

@@ -3,13 +3,14 @@ package com.yaoxj;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.RouterFunctions;
 import org.springframework.web.servlet.function.ServerResponse;
 
-
-@SpringBootApplication
+//exclude ={ DataSourceAutoConfiguration.class }
+@SpringBootApplication()
 @MapperScan("com.yaoxj.*")
 public class App {
     public static void main(String[] args) {

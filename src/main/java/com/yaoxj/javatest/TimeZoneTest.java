@@ -1,5 +1,6 @@
 package com.yaoxj.javatest;
 
+import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -7,6 +8,7 @@ import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +57,21 @@ public class TimeZoneTest {
         BigDecimal b  =   new  BigDecimal(aa);
         float  m_price  =  b.setScale(2,  BigDecimal.ROUND_HALF_UP).floatValue();
         System.out.println((int)(m_price*100));
+        System.out.println(System.currentTimeMillis());
+        Timestamp ts = new Timestamp(1646721134000l);
+        System.out.println(ts);
+        System.out.println(DateUtil.format(ts, "yyyyMMddHHmmss"));
+
+
+//        System.out.println(BigDecimal.ZERO.compareTo(null)>0);
+
+
+        String s = JSON.toJSONString(list);
+        JSONObject.toJSONString(list);
+
+//        可以看到，使用== 和使用equals方法的执行结果是一样的。
+//        为什么呢？
+//        可以看下图，因为在Enum类里面，已经重写了equals方法，而方法里面比较就是直接使用==，来比较2个对象的。所以，你在外边直接使用==也是可以的。
 
     }
 }

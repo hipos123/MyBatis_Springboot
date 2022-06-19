@@ -1,12 +1,14 @@
 package com.yaoxj.controller;
 
 
+import com.agent.GetNumber;
 import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
 import com.yaoxj.service.BizService;
 import com.yaoxj.service.UserService;
 import com.yaoxj.util.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +29,9 @@ public class MyController {
 
     @RequestMapping("/orderList")
 	public List<UserEntity> orderList(){
-        log.info("获取用户列表数据");
+//		GetNumber getNumber = new GetNumber();
+		System.out.println(GetNumber.getNumber());
+		log.info("获取用户列表数据");
 		PageHelper.startPage(1, 2);
 		log.info("我在master分支下做了修改");
 		return userService.queryList();
