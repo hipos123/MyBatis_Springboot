@@ -7,11 +7,13 @@
     <groupId>com.yaoxj</groupId>
     <artifactId>MyBatis</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+<!--    <packaging>pom</packaging>-->
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.0</version>
+<!--        <relativePath></relativePath>-->
     </parent>
     <properties>
         <java.version>1.8</java.version>
@@ -20,6 +22,7 @@
         <docker.repostory>192.168.3.234:8011</docker.repostory>
         <!--项目名,需要和Harbor中的项目名称保持一致 -->
         <docker.registry.name>springmybatis</docker.registry.name>
+        <jasypt.version>3.0.3</jasypt.version>
     </properties>
     <dependencies>
         <dependency>
@@ -43,11 +46,31 @@
             <version>4.1.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>1.2.2</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.2.2</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.1</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--            <version>3.3.2</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-generator</artifactId>-->
+<!--            <version>3.3.2</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -70,6 +93,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -104,7 +128,7 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>4.6.4</version>
+            <version>5.1.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -165,6 +189,32 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.yaoxj</groupId>
+            <artifactId>myAgent</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <type>jar</type>
+            <systemPath>${project.basedir}/libs/test-agent.jar</systemPath>
+        </dependency>
+        <!-- 国密算法依赖库 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.64</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.github.cisumer</groupId>-->
+<!--            <artifactId>sensitive-util</artifactId>-->
+<!--            <version>1.1</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
 
@@ -174,6 +224,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.yaoxj.App</mainClass>
+                </configuration>
             </plugin>
 
            <!-- <plugin>
@@ -230,6 +283,14 @@
                 </configuration>
             </plugin>-->
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
