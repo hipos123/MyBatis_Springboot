@@ -36,5 +36,7 @@ public class enumTest {
     public static void main(String[] args) {
         System.out.println(Color.RED.toString());    // 输出：1-红色
         System.out.println(Color.RED.name);
+        ProtocolSource protocolSource = ProtocolSource.fromValue("01");
+        System.out.println(protocolSource);
     }
 }

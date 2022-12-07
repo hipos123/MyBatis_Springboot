@@ -1,6 +1,17 @@
 package com.yaoxj;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.NumberUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
+import com.yaoxj.entity.UserEntity;
+import jdk.nashorn.internal.ir.CallNode;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.http.client.utils.DateUtils;
 
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
@@ -13,6 +24,7 @@ import java.util.stream.IntStream;
  * @author: yaoxj
  * @create: 2021-03-25 17:47
  **/
+@Slf4j
 public class jdkpit {
     public static void main(String[] args) {
         //会抛出异常NumberFormatException：
@@ -159,6 +171,88 @@ public class jdkpit {
         //这样做生成的list，是定长的。也就是说，如果你对它做add或者remove，都会抛UnsupportedOperationException。
         //如果修改数组的值，list中的对应值也会改变！
         System.out.println(strings);
+        UserEntity userEntity=new UserEntity();
+        userEntity.setUserName("yaoxj");
+        userEntity.setUserCode("code");
+        userEntity.setPhonenumber("1111111");
 
+        System.out.println(JSON.toJSONString(userEntity));
+
+        JSONObject jsonObject = (JSONObject) JSONObject.toJSON(userEntity);
+
+        System.out.println((Map)jsonObject);
+        Map<String, Object> stringObjectMap = BeanUtil.beanToMap(userEntity);
+        System.out.println(stringObjectMap);
+
+        Map map=new HashMap();
+        map.put("userName","ttt");
+        map.put("userCode","cooo");
+//        map.put("phonenumber","");
+        UserEntity userEntity1 = BeanUtil.fillBeanWithMap(map, new UserEntity(),false);
+
+        String s = JSON.toJSONString(userEntity1);
+        UserEntity userEntity2 = JSONObject.parseObject(s, UserEntity.class);
+        System.out.println("json=="+JSON.toJSONString(userEntity1));
+        System.out.println("json=="+JSON.toJSONString(userEntity2));
+        List deliveryTrackList = (List)null;
+        System.out.println(deliveryTrackList);
+        if(CollectionUtil.isNotEmpty(deliveryTrackList)){
+            for(Object deliveryObj:deliveryTrackList){
+                System.out.println((UserEntity)deliveryObj);
+            }
+        }else{
+            System.out.println(111111);
+        }
+
+      /*  UserEntity userEntity2=new UserEntity();
+        List myL=new ArrayList();
+        myL.add(userEntity2);
+        List<UserEntity> reulstList = Lists.newArrayList(myL);
+
+        reulstList.stream().forEach( e -> {
+            System.out.println("eeee"+e);
+        });
+
+        list.stream().forEach(e -> {
+            System.out.println(e);
+        });
+
+        myL.stream().forEach( e -> {
+            System.out.println("eeee"+e);
+        });
+
+        if(1== Integer.parseInt(1+"")){
+            System.out.println("对了");
+        }*/
+
+
+        String startTimeStr = DateUtils.formatDate(new Date(), "yyyyMMdd");
+        System.out.println("2233="+startTimeStr);
+
+//        startDate=Wed Nov 02 00:00:00 CST 2022, endDate=Sat Jan 31 00:00:00 CST 2026
+
+        System.out.println("22="+DateUtils.parseDate(startTimeStr,new String[]{"yyyyMMdd"}));
+
+        System.out.println(new Date().getTime());
+
+        String aaa="{\"id\":\"285a3ceb-0808-4fcc-8744-90843cdc16aa\",\"time\":\"20221116173327275\",\"type\":\"1001\",\"content\":{\"orderNo\":\"594956707533010\"}}";
+        JSONObject jsonObject1 = JSONObject.parseObject(aaa);
+        System.out.println(jsonObject1);
+        String content = jsonObject1.getString("content");
+        System.out.println(content);
+
+        JSONObject jsonObject2=new JSONObject();
+        UserEntity userEntity3 = new UserEntity();
+        userEntity3.setUserCode("11111");
+        jsonObject2.put("conte",userEntity3);
+        String conte = jsonObject2.getString("conte");
+        System.out.println(conte);
+
+        log.info("comnyen:{}",content);
+    /*    String bbc="{orderNo=594956707533010}";
+
+        System.out.println(JSONObject.parseObject(aaa));
+        System.out.println(JSON.toJSON(bbc));
+        System.out.println(JSON.toJSONString(bbc));*/
     }
 }

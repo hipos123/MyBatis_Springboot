@@ -4,6 +4,9 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.yaoxj.config.LongDoubleSerialize;
+import com.yaoxj.config.StringSerialize;
 import com.yaoxj.sensitive.annotation.SensitiveChineseName;
 import com.yaoxj.sensitive.annotation.SensitiveEmail;
 import com.yaoxj.sensitive.annotation.SensitiveMobile;
@@ -14,6 +17,8 @@ import java.util.Date;
 
 @TableName("sys_user")
 public class UserEntity {
+
+//    @JsonSerialize(using = LongDoubleSerialize.class)
     private long userId;
     private String userCode;
 
@@ -23,7 +28,7 @@ public class UserEntity {
 //    @SensitiveInfo(value = SensitiveType.CHINESE_NAME_FIRST,prefixLen = 1,suffixLen = 3)
     @SensitiveChineseName
     @TableField("login_name")
-    @JSONField(name="nickName",serialzeFeatures= {SerializerFeature.WriteMapNullValue,SerializerFeature.WriteNullStringAsEmpty})
+    @JSONField(name="nickName",serialzeFeatures= {SerializerFeature.WriteMapNullValue})
     private String nickName;
     private String userPwd;
 
@@ -46,8 +51,10 @@ public class UserEntity {
     private Date createDate;
     private Date updateDate;
     @SensitiveMobile
+    @JSONField(name="phonenumber",serialzeFeatures= {SerializerFeature.WriteMapNullValue})
     private String phonenumber;
     @SensitiveEmail
+    @JsonSerialize(using = StringSerialize.class)
     private String email;
 
     public long getUserId() {

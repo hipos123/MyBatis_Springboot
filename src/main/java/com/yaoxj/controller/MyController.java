@@ -1,7 +1,6 @@
 package com.yaoxj.controller;
 
 
-import com.agent.GetNumber;
 import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
 import com.yaoxj.service.BizService;
@@ -30,7 +29,7 @@ public class MyController {
     @RequestMapping("/orderList")
 	public List<UserEntity> orderList(){
 //		GetNumber getNumber = new GetNumber();
-		System.out.println(GetNumber.getNumber());
+//		System.out.println(GetNumber.getNumber());
 		log.info("获取用户列表数据");
 		PageHelper.startPage(1, 2);
 		log.info("我在master分支下做了修改");

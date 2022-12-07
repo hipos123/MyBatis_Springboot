@@ -1,6 +1,4 @@
 package com.yaoxj.controller;
-
-import com.agent.GetNumber;
 import com.demo.starter.service.DemoService;
 import com.github.pagehelper.PageHelper;
 import com.yaoxj.entity.UserEntity;
@@ -26,7 +24,7 @@ public class SkyWalkingController {
 
     @GetMapping(value = "/apm")
     public String apmTest() throws Exception {
-        System.out.println(GetNumber.getNumber());
+//        System.out.println(GetNumber.getNumber());
         return completableFutureService.queryGoodsDetailWithCatalogInfo();
     }
 
