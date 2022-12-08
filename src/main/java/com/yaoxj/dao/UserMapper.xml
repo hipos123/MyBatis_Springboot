@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yaoxj.dao.UserMapper">
+    <insert id="batchInsertSysUser">
+        insert into sys_user(USER_ID, USER_NAME, USER_CODE, PASSWD, MOBILE, EMAIL,
+                             SEX, REMARK, ID_CARD, PWD_UPDATE_TIME, CREATE_TIME, CREATE_USER_ID,
+                             LAST_LOGIN_TIME, STATE, TENANT_ID, UPDATE_TIME, IS_SUPER, TYPE,
+                             JOB_NO, AVATAR_PATH, POST, ext_ca_uni_code, ext_user_id, ext_user_code,
+                             login_status, union_user)
+        values
+                <foreach collection="sysUserList" item="sysUser" separator=",">
+                    (#{sysUser.userId}, #{sysUser.userName}, #{sysUser.userCode}, #{sysUser.passwd}, #{sysUser.mobile}, #{sysUser.email},
+                    #{sysUser.sex}, #{sysUser.remark}, #{sysUser.idCard}, #{sysUser.pwdUpdateTime}, #{sysUser.createTime}, #{sysUser.createUserId},
+                    #{sysUser.lastLoginTime}, #{sysUser.state}, #{sysUser.tenantId}, #{sysUser.updateTime}, #{sysUser.isSuper}, #{sysUser.type},
+                    #{sysUser.jobNo}, #{sysUser.avatarPath}, #{sysUser.post}, #{sysUser.extCaUniCode}, #{sysUser.extUserId}, #{sysUser.extUserCode},
+                    #{sysUser.loginStatus}, #{sysUser.unionUser})
+                </foreach>
+    </insert>
+
+</mapper>

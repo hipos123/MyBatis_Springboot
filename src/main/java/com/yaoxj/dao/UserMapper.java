@@ -53,4 +53,6 @@ public interface UserMapper  extends BaseMapper<UserEntity> {
 
     @Delete("DELETE FROM user WHERE user_id =#{userId}")
     int deleteEntity(UserEntity entity);
+
+    int batchInsertSysUser(List<UserEntity> list);
 }

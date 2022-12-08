@@ -1,10 +1,7 @@
 package com.yaoxj.service;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -64,6 +61,27 @@ public class UserService<T extends BaseMapper, E> extends ServiceImpl<UserMapper
         entity.setCreateDate(new Date());
         entity.setUpdateDate(new Date());
         return mapper.insertEntity(entity);
+    }
+
+    //批量的新增 用这样子耗时比较少,sql那边没改，大概的架子就是这样子。其他的
+    public int insertBatchEntity() {
+        List<UserEntity> list=new ArrayList<>();
+        for (int i=0;i<10000;i++) {
+            UserEntity entity = new UserEntity();
+            entity.setUserName("lisi2"+i);
+            entity.setUserCode("lisi2"+i + new Date());
+            entity.setNickName("郭靖2"+i);
+            entity.setUserPwd("1232"+i);
+            entity.setCreateDate(new Date());
+            entity.setUpdateDate(new Date());
+            list.add(entity);
+        }
+
+//        this.saveBatch(list);  不要用这个，这也很慢, 默认情况下也是一条一条插入，如果想要批量插入，需要新增下面的配置
+        //url: jdbc:mysql://127.0.0.1:3306/photo?rewriteBatchedStatements=true
+        int i = mapper.batchInsertSysUser(list);
+        return i;
+//        return mapper.insertEntity(entity);
     }
 
     public int insertParam() {
